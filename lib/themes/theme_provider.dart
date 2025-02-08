@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'dark_theme.dart';
-import 'light_theme.dart';
-
 class ThemeProvider with ChangeNotifier {
   static const String _useSystemThemeKey = 'useSystemTheme';
   static const String _isDarkThemeKey = 'isDarkTheme';
