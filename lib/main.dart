@@ -1,36 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/pages/login_screen.dart';
 import 'package:provider/provider.dart';
-
 import 'pages/home_screen.dart';
 import 'pages/register_screen.dart';
 import 'pages/settings_screen.dart';
+import 'themes/dark_theme.dart';
+import 'themes/light_theme.dart';
 import 'themes/theme_provider.dart';
 
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: const MyApp(),
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final themeProvider = ThemeProvider();
+  await themeProvider.initializePreferences();
+
+  runApp(MyApp(themeProvider));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeProvider themeProvider;
+
+  const MyApp(this.themeProvider, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeProvider>(context).themeData,
-      home: HomeScreen(),
-      routes: {
-        HomeScreen.routeName: (ctx) => const HomeScreen(),
-        LoginScreen.routeName: (ctx) => LoginScreen(),
-        RegisterScreen.routeName: (ctx) => RegisterScreen(),
-        Settings.routeName: (ctx) => Settings(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: themeProvider),
+      ],
+      child: Consumer<ThemeProvider>(
+        builder: (ctx, themeProvider, _) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            themeMode: themeProvider.useSystemTheme
+                ? ThemeMode.system
+                : themeProvider.isDarkTheme
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
+            home: HomeScreen(),
+            routes: {
+              HomeScreen.routeName: (ctx) => const HomeScreen(),
+              LoginScreen.routeName: (ctx) => LoginScreen(),
+              RegisterScreen.routeName: (ctx) => RegisterScreen(),
+              Settings.routeName: (ctx) => Settings(),
+            },
+          );
+        },
+      ),
     );
   }
 }

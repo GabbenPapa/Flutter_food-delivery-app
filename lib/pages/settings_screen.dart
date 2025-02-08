@@ -73,7 +73,12 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       // appBar: AppBar(title: Text(AppLocalizations.of(context)!.settings)),
-      appBar: AppBar(title: Text('settings')),
+      appBar: AppBar(
+        title: Text('Settings'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+
       body: Stack(
         children: [
           Padding(
@@ -127,11 +132,12 @@ class _SettingsState extends State<Settings> {
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
                   ),
-                  // value: themeProvider.useSystemTheme,
-                  value: false,
+                  value: Provider.of<ThemeProvider>(context).useSystemTheme,
                   onChanged: (value) async {
-                    // await themeProvider.setUseSystemTheme(value);
+                    await Provider.of<ThemeProvider>(context, listen: false)
+                        .setUseSystemTheme(value);
                   },
+
                   activeColor: Theme.of(context).colorScheme.primary,
                   activeTrackColor: Theme.of(context).colorScheme.secondary,
                   inactiveTrackColor: Theme.of(context).colorScheme.secondary,
@@ -139,19 +145,24 @@ class _SettingsState extends State<Settings> {
 
                 // Dark Theme Toggle
                 SwitchListTile(
-                  // title: Text(AppLocalizations.of(context)!.darkTheme),
                   title: Text(
                     'Dark Theme',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
+                      color: Provider.of<ThemeProvider>(context).useSystemTheme
+                          ? Theme.of(context).disabledColor
+                          : Theme.of(context).colorScheme.inversePrimary,
                     ),
                   ),
                   tileColor: Theme.of(context).colorScheme.onSurface,
-                  value: Provider.of<ThemeProvider>(context).isDarkMode,
-                  onChanged: (value) =>
-                      Provider.of<ThemeProvider>(context, listen: false)
-                          .toggleTheme(),
-
+                  value: Provider.of<ThemeProvider>(context).isDarkTheme,
+                  onChanged: (bool value) {
+                    if (Provider.of<ThemeProvider>(context, listen: false)
+                        .useSystemTheme) {
+                      return;
+                    }
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .setIsDarkTheme(value);
+                  },
                   activeColor: Theme.of(context).colorScheme.primary,
                   activeTrackColor: Theme.of(context).colorScheme.secondary,
                   inactiveTrackColor: Theme.of(context).colorScheme.secondary,
