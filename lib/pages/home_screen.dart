@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../comonents/drawer.dart';
+import '../comonents/sliver_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home_screen';
@@ -9,12 +10,31 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
       drawer: HomeDrawer(),
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBarOwn(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ],
+            ),
+            title: Text(
+              'Title',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary),
+            ),
+          ),
+        ],
+        body: Center(
+          child: Text('Home Screen'),
+        ),
+      ),
     );
   }
 }
