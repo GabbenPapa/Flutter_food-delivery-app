@@ -8,8 +8,6 @@ class HomeTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      unselectedLabelColor: Theme.of(context).colorScheme.primary,
-      labelColor: Theme.of(context).colorScheme.primary,
       dividerColor: Colors.transparent,
       controller: tabController,
       tabs: [

@@ -16,16 +16,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late TabController tabController;
+  late TabController _tabController;
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   void dispose() {
-    tabController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 CurrentLocation(),
                 HomeDicriptionBox(),
-                HomeTabBar(tabController: tabController)
+                HomeTabBar(tabController: _tabController)
               ],
             ),
             child: Container(
@@ -52,8 +52,13 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
           )
         ],
-        body: Center(
-          child: Text('Home Screen'),
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            Text("1"),
+            Text("2"),
+            Text("3"),
+          ],
         ),
       ),
     );
