@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'pages/home_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: themeProvider),
+        ChangeNotifierProvider(create: (context) => Restaurant()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (ctx, themeProvider, _) {

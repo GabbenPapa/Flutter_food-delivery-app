@@ -25,7 +25,7 @@ enum FoodCategory {
 
 class Addon {
   final String name;
-  final String price;
+  final double price;
 
   const Addon({required this.name, required this.price});
 }
