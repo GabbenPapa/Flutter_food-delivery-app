@@ -39,11 +39,7 @@ class _SettingsState extends State<Settings> {
     // );
   }
 
-/*************  ✨ Codeium Command ⭐  *************/
-  /// Resets the introductory state of the application by marking the intro as not completed.
-
-/******  993a1406-c881-4757-b97b-f756197af8ae  *******/ Future<void>
-      _resetIntro() async {
+  Future<void> _resetIntro() async {
     // await IntroProvider.resetIntroCompleted();
   }
 

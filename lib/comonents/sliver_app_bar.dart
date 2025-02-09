@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SliverAppBarOwn extends StatelessWidget {
+class HomeSliverAppBar extends StatelessWidget {
   final Widget child;
   final Widget title;
 
-  const SliverAppBarOwn({
+  const HomeSliverAppBar({
     super.key,
     required this.child,
     required this.title,
@@ -13,8 +13,8 @@ class SliverAppBarOwn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 200,
-      collapsedHeight: 120,
+      expandedHeight: 300,
+      collapsedHeight: 200,
       floating: false,
       pinned: true,
       actions: [
@@ -29,9 +29,13 @@ class SliverAppBarOwn extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       iconTheme:
           IconThemeData(color: Theme.of(context).colorScheme.inversePrimary),
-      title: Text(
-        'BoBurger',
-        style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+      title: Center(
+        child: Text(
+          'BoBurger',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.inversePrimary,
+          ),
+        ),
       ),
       flexibleSpace: FlexibleSpaceBar(
         title: title,
