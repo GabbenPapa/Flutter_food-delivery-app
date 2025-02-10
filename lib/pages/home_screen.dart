@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/comonents/current_location.dart';
+import 'package:food_delivery/comonents/food_tile.dart';
 import 'package:food_delivery/comonents/tab_bar.dart';
 import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/models/restaurant.dart';
@@ -45,14 +46,14 @@ class _HomeScreenState extends State<HomeScreen>
         itemCount: categoryMenu.length,
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              categoryMenu[index].name,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
-                fontSize: 16,
-              ),
-            ),
+          return FoodTile(
+            food: categoryMenu[index],
+            onTap: () {},
+            // onTap: () => Navigator.pushNamed(
+            //   context,
+            //   '/food_screen',
+            //   arguments: categoryMenu[index],
+            // ),
           );
         },
       );

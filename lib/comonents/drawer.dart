@@ -34,6 +34,13 @@ class HomeDrawer extends StatelessWidget {
             ),
             Spacer(),
             HomeDrowerTile(
+              text: 'L O G I N',
+              icon: Icons.login,
+              onTap: () {
+                Navigator.of(context).pushNamed('/login_screen');
+              },
+            ),
+            HomeDrowerTile(
               text: 'L O G O U T',
               icon: Icons.logout,
               onTap: () {},
