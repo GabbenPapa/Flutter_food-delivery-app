@@ -9,7 +9,6 @@ class HomeDicriptionBox extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Theme.of(context).colorScheme.primary),
         borderRadius: BorderRadius.circular(8),
-        // color: Theme.of(context).colorScheme.onSurface),
       ),
       padding: const EdgeInsets.all(5.0),
       margin: const EdgeInsets.only(left: 25.0, right: 25.0),

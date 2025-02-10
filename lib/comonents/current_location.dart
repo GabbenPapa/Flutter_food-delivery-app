@@ -51,32 +51,35 @@ class CurrentLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        "Deliver now",
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
-          fontSize: 12,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          "Deliver now",
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+            fontSize: 12,
+          ),
         ),
-      ),
-      GestureDetector(
-        onTap: () => openLocationSearchBox(context),
-        child: Row(
-          children: [
-            Text(
-              "1164 Budapest",
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            Icon(
-              Icons.keyboard_arrow_down_rounded,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ],
-        ),
-      )
-    ]);
+        GestureDetector(
+          onTap: () => openLocationSearchBox(context),
+          child: Row(
+            children: [
+              Text(
+                "1164 Budapest",
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold),
+              ),
+              Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ],
+          ),
+        )
+      ]),
+    );
   }
 }

@@ -14,7 +14,7 @@ class HomeSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       expandedHeight: 300,
-      collapsedHeight: 200,
+      collapsedHeight: 220,
       floating: false,
       pinned: true,
       actions: [
@@ -40,6 +40,7 @@ class HomeSliverAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         title: title,
         centerTitle: true,
+        expandedTitleScale: 1.3,
         titlePadding: const EdgeInsets.all(16.0),
         background: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
