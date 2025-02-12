@@ -45,15 +45,21 @@ class FoodTile extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 10),
-              Image.asset(
-                food.imagePath,
-                width: 120,
-                height: 120,
-                fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  food.imagePath,
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),
         ),
+        // Divider(
+        //   color: Theme.of(context).colorScheme.onSurface,
+        // )
       ]),
     );
   }

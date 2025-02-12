@@ -48,12 +48,11 @@ class _HomeScreenState extends State<HomeScreen>
         itemBuilder: (context, index) {
           return FoodTile(
             food: categoryMenu[index],
-            onTap: () {},
-            // onTap: () => Navigator.pushNamed(
-            //   context,
-            //   '/food_screen',
-            //   arguments: categoryMenu[index],
-            // ),
+            onTap: () => Navigator.pushNamed(
+              context,
+              '/food_screen',
+              arguments: categoryMenu[index],
+            ),
           );
         },
       );
