@@ -5,19 +5,64 @@ import '../models/food.dart';
 class FoodDetailsScreen extends StatefulWidget {
   static const routeName = '/food_screen';
   final Food food;
-  final Map<Addon, bool> selectedAddons = {};
 
-  FoodDetailsScreen({required this.food, super.key}) {
-    for (Addon addon in food.availableAddons) {
-      selectedAddons[addon] = false;
-    }
-  }
+  const FoodDetailsScreen({required this.food, super.key});
 
   @override
-  State<FoodDetailsScreen> createState() => _FoodPageState();
+  State<FoodDetailsScreen> createState() => _FoodDetailsScreenState();
 }
 
-class _FoodPageState extends State<FoodDetailsScreen> {
+class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
+  late Map<Addon, bool> selectedAddons;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedAddons = {
+      for (var addon in widget.food.availableAddons) addon: false,
+    };
+  }
+
+  Widget _buildAddOnsSection(BuildContext context) {
+    if (widget.food.availableAddons.isEmpty) return const SizedBox.shrink();
+
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        initiallyExpanded: true,
+        title: Text(
+          'Add-ons',
+          style: TextStyle(
+            fontSize: 20,
+            color: Theme.of(context).colorScheme.inverseSurface,
+          ),
+        ),
+        children: widget.food.availableAddons.map((addon) {
+          return CheckboxListTile(
+            title: Text(
+              addon.name,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+            subtitle: Text(
+              '\$${addon.price}',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+            value: selectedAddons[addon] ?? false,
+            onChanged: (bool? value) {
+              setState(() {
+                selectedAddons[addon] = value ?? false;
+              });
+            },
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -49,7 +94,6 @@ class _FoodPageState extends State<FoodDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
-
                         Text(
                           widget.food.description,
                           style: TextStyle(
@@ -58,64 +102,11 @@ class _FoodPageState extends State<FoodDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
-
                         Divider(
                           color: Theme.of(context).colorScheme.primary,
                         ),
-
-                        const SizedBox(height: 10),
-                        // Addons
-                        Text(
-                          'Add-ons',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Theme.of(context).colorScheme.inverseSurface,
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            padding: EdgeInsets.zero,
-                            itemCount: widget.food.availableAddons.length,
-                            itemBuilder: (context, index) {
-                              Addon addon = widget.food.availableAddons[index];
-                              return CheckboxListTile(
-                                title: Text(
-                                  addon.name,
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                  '\$${addon.price}',
-                                  style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary,
-                                  ),
-                                ),
-                                value: widget.selectedAddons[addon] ?? false,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    widget.selectedAddons[addon] =
-                                        value ?? false;
-                                  });
-                                },
-                              );
-                            },
-                          ),
-                        ),
+                        _buildAddOnsSection(context),
                         const SizedBox(height: 20),
-
                         SizedBox(
                           width: double.infinity,
                           height: 60,
@@ -138,7 +129,6 @@ class _FoodPageState extends State<FoodDetailsScreen> {
                             ),
                           ),
                         ),
-
                         const SizedBox(height: 40),
                       ],
                     ),
@@ -148,8 +138,7 @@ class _FoodPageState extends State<FoodDetailsScreen> {
             ),
           ),
         ),
-
-        // Back Button
+        // Vissza gomb
         SafeArea(
           child: Opacity(
             opacity: 0.6,
