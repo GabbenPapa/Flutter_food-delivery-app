@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.of(context).pushNamed(LoginScreen.routeName);
                     },
                     child: Text(
-                      "Sign Up",
+                      "Sign In",
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontWeight: FontWeight.bold,
