@@ -1,6 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/food.dart';
+import '../models/restaurant.dart';
 
 class FoodDetailsScreen extends StatefulWidget {
   static const routeName = '/food_screen';
@@ -13,7 +14,7 @@ class FoodDetailsScreen extends StatefulWidget {
 }
 
 class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
-  late Map<Addon, bool> selectedAddons;
+  late Map<Addon, bool> selectedAddons = {};
 
   @override
   void initState() {
@@ -21,6 +22,18 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
     selectedAddons = {
       for (var addon in widget.food.availableAddons) addon: false,
     };
+  }
+
+  void addToCart(Food food, Map<Addon, bool> selectedAddonsMap) {
+    Navigator.pop(context);
+
+    List<Addon> currentlySelectedAddons = [];
+    for (Addon addon in widget.food.availableAddons) {
+      if (selectedAddonsMap[addon] ?? false) {
+        currentlySelectedAddons.add(addon);
+      }
+    }
+    context.read<Restaurant>().addToCart(food, currentlySelectedAddons);
   }
 
   Widget _buildAddOnsSection(BuildContext context) {
@@ -118,11 +131,10 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                               foregroundColor:
                                   Theme.of(context).colorScheme.inversePrimary,
                             ),
-                            onPressed: () {
-                              if (kDebugMode) {
-                                print('Add to Cart');
-                              }
-                            },
+                            onPressed: () => addToCart(
+                              widget.food,
+                              selectedAddons,
+                            ),
                             child: const Text(
                               "Add to Cart",
                               style: TextStyle(fontSize: 16),
