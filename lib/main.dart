@@ -3,7 +3,7 @@ import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/food.dart';
-import 'pages/food_details.dart';
+import 'pages/food_details_screen.dart';
 import 'pages/home_screen.dart';
 import 'pages/register_screen.dart';
 import 'pages/settings_screen.dart';
