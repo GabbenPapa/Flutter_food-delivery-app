@@ -19,7 +19,7 @@ class HomeSliverAppBar extends StatelessWidget {
       pinned: true,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () => Navigator.of(context).pushNamed('/cart_screen'),
           icon: Icon(
             Icons.shopping_cart,
             color: Theme.of(context).colorScheme.inversePrimary,

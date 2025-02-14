@@ -3,6 +3,7 @@ import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/food.dart';
+import 'pages/cart_screen.dart';
 import 'pages/food_details_screen.dart';
 import 'pages/home_screen.dart';
 import 'pages/register_screen.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
               FoodDetailsScreen.routeName: (ctx) => FoodDetailsScreen(
                     food: ModalRoute.of(ctx)!.settings.arguments as Food,
                   ),
+              CartScreen.routeName: (ctx) => CartScreen(),
             },
           );
         },
