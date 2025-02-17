@@ -90,7 +90,14 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset(widget.food.imagePath),
+                Hero(
+                  tag: "food_details_${widget.food.name}",
+                  child: Image.asset(
+                    widget.food.imagePath,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 SizedBox(
                   width: double.infinity,
                   child: Padding(

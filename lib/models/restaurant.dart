@@ -82,7 +82,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
-      name: "Ice cream bowl",
+      name: "Cakes",
       description: "It is a cake selection, with chocolate shake",
       imagePath: "assets/images/desserts/Desserts.webp",
       price: 5.50,

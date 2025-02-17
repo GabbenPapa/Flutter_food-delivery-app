@@ -77,9 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
                 HomeTabBar(tabController: _tabController)
               ],
             ),
-            child: Container(
-                // Itt jön a háttérben lévő child tartalom
-                ),
+            child: Container(),
           )
         ],
         body: Consumer<Restaurant>(

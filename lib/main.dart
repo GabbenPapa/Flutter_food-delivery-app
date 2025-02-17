@@ -6,6 +6,7 @@ import 'models/food.dart';
 import 'pages/cart_screen.dart';
 import 'pages/food_details_screen.dart';
 import 'pages/home_screen.dart';
+import 'pages/payment_screen.dart';
 import 'pages/register_screen.dart';
 import 'pages/settings_screen.dart';
 import 'themes/dark_theme.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
                     food: ModalRoute.of(ctx)!.settings.arguments as Food,
                   ),
               CartScreen.routeName: (ctx) => CartScreen(),
+              PaymentScreen.routeName: (ctx) => PaymentScreen(),
             },
           );
         },

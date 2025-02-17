@@ -104,30 +104,14 @@ class CartScreen extends StatelessWidget {
                       foregroundColor:
                           Theme.of(context).colorScheme.inversePrimary,
                     ),
-                    onPressed: () => {},
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed('/payment'),
                     child: const Text(
-                      "Pay",
+                      "Checkout",
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
                 ),
-                // Container(
-                //   padding: const EdgeInsets.all(16.0),
-                //   width: double.infinity,
-                //   child: ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //       textStyle: const TextStyle(fontSize: 25),
-                //       backgroundColor: Theme.of(context).colorScheme.primary,
-                //       foregroundColor:
-                //           Theme.of(context).colorScheme.inversePrimary,
-                //     ),
-                //     onPressed: () => {},
-                //     child: const Text(
-                //       "Pay",
-                //       style: TextStyle(fontSize: 16),
-                //     ),
-                //   ),
-                // ),
                 const SizedBox(height: 40),
               ],
             ),
