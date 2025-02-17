@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:provider/provider.dart';
 
+import '../comonents/cart_tile.dart';
+
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart_screen';
   const CartScreen({super.key});
@@ -14,21 +16,24 @@ class CartScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: Text('Cart (${userCart.length})'),
+          backgroundColor: Colors.transparent,
+          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
-        body: ListView.builder(
-          itemCount: userCart.length,
-          itemBuilder: (context, index) => ListTile(
-            leading: Image.asset(userCart[index].food.imagePath),
-            title: Text(userCart[index].food.name),
-            subtitle: Text(
-                '${userCart[index].quantity} x \$${userCart[index].food.price}'),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: () {
-                restaurant.removeFromCart(userCart[index]);
-              },
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: userCart.length,
+                itemBuilder: (context, index) {
+                  final cartItem = userCart[index];
+
+                  return CartTile(
+                    cartItem: cartItem,
+                  );
+                },
+              ),
             ),
-          ),
+          ],
         ),
       );
     });
