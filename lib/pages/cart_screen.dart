@@ -58,58 +58,80 @@ class CartScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: Column(
-                children: [
-                  userCart.isEmpty
-                      ? Expanded(
-                          child: Center(
-                            child: Text(
-                              "Cart is empty",
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontSize: 20,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      userCart.isEmpty
+                          ? Expanded(
+                              child: Center(
+                                child: Text(
+                                  "Cart is empty",
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Expanded(
+                              child: ListView.builder(
+                                itemCount: userCart.length,
+                                itemBuilder: (context, index) {
+                                  final cartItem = userCart[index];
+
+                                  return CartTile(
+                                    cartItem: cartItem,
+                                  );
+                                },
                               ),
                             ),
-                          ),
-                        )
-                      : Expanded(
-                          child: ListView.builder(
-                            itemCount: userCart.length,
-                            itemBuilder: (context, index) {
-                              final cartItem = userCart[index];
-
-                              return CartTile(
-                                cartItem: cartItem,
-                              );
-                            },
-                          ),
-                        ),
-                ],
-              ),
-            ),
-            SafeArea(
-              child: SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 25),
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor:
-                        Theme.of(context).colorScheme.inversePrimary,
-                  ),
-                  onPressed: () => {},
-                  child: const Text(
-                    "Pay",
-                    style: TextStyle(fontSize: 16),
+                    ],
                   ),
                 ),
-              ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 25),
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor:
+                          Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                    onPressed: () => {},
+                    child: const Text(
+                      "Pay",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+                // Container(
+                //   padding: const EdgeInsets.all(16.0),
+                //   width: double.infinity,
+                //   child: ElevatedButton(
+                //     style: ElevatedButton.styleFrom(
+                //       textStyle: const TextStyle(fontSize: 25),
+                //       backgroundColor: Theme.of(context).colorScheme.primary,
+                //       foregroundColor:
+                //           Theme.of(context).colorScheme.inversePrimary,
+                //     ),
+                //     onPressed: () => {},
+                //     child: const Text(
+                //       "Pay",
+                //       style: TextStyle(fontSize: 16),
+                //     ),
+                //   ),
+                // ),
+                const SizedBox(height: 40),
+              ],
             ),
-          ],
+          ),
         ),
       );
     });

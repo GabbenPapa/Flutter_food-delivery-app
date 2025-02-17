@@ -17,7 +17,7 @@ class CartTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.tertiary,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
         child: Column(
           children: [
             Padding(
