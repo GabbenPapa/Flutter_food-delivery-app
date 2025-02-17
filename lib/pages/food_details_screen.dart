@@ -50,28 +50,33 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
             color: Theme.of(context).colorScheme.inverseSurface,
           ),
         ),
-        children: widget.food.availableAddons.map((addon) {
-          return CheckboxListTile(
-            title: Text(
-              addon.name,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
+        children: widget.food.availableAddons.map(
+          (addon) {
+            return CheckboxListTile(
+              checkColor: Theme.of(context).colorScheme.tertiary,
+              side: BorderSide(
+                  color: Theme.of(context).colorScheme.inversePrimary),
+              title: Text(
+                addon.name,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
-            ),
-            subtitle: Text(
-              '\$${addon.price}',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
+              subtitle: Text(
+                '\$${addon.price}',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
-            ),
-            value: selectedAddons[addon] ?? false,
-            onChanged: (bool? value) {
-              setState(() {
-                selectedAddons[addon] = value ?? false;
-              });
-            },
-          );
-        }).toList(),
+              value: selectedAddons[addon] ?? false,
+              onChanged: (bool? value) {
+                setState(() {
+                  selectedAddons[addon] = value ?? false;
+                });
+              },
+            );
+          },
+        ).toList(),
       ),
     );
   }
@@ -81,6 +86,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
     return Stack(
       children: [
         Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.onSurface,
           body: SingleChildScrollView(
             child: Column(
               children: [

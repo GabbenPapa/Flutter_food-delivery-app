@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/comonents/quantity_selector.dart';
 import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:provider/provider.dart';
@@ -12,40 +13,96 @@ class CartTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Restaurant>(
       builder: (context, restaurant, child) => Container(
-        padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.tertiary,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Column(
           children: [
-            Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    cartItem.food.imagePath,
-                    height: 100,
-                    width: 100,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      cartItem.food.imagePath,
+                      height: 100,
+                      width: 100,
+                    ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      cartItem.food.name,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontSize: 16,
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        cartItem.food.name,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "\$${cartItem.food.price}",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontSize: 16,
+                      Text(
+                        "\$${cartItem.food.price}",
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  Spacer(),
+                  QuantitySelector(
+                    qantity: cartItem.quantity,
+                    food: cartItem.food,
+                    onDecrement: () {
+                      restaurant.removeFromCart(cartItem);
+                    },
+                    onIncrement: () {
+                      restaurant.addToCart(
+                          cartItem.food, cartItem.selectedAddons);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: cartItem.selectedAddons.isNotEmpty ? 60 : 0,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: cartItem.selectedAddons.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
+                  itemBuilder: (context, index) {
+                    final addon = cartItem.selectedAddons[index];
+                    return FilterChip(
+                      label: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(addon.name),
+                          const SizedBox(width: 5),
+                          Text("\$${addon.price.toString()}"),
+                        ],
+                      ),
+                      shape: StadiumBorder(
+                        side: BorderSide(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      onSelected: (value) {},
+                      backgroundColor: Theme.of(context).colorScheme.tertiary,
+                      labelStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontSize: 12,
+                      ),
+                    );
+                  },
                 ),
-              ],
+              ),
             ),
           ],
         ),
@@ -53,17 +110,3 @@ class CartTile extends StatelessWidget {
     );
   }
 }
-
-
-// return ListTile(
-//   leading: Image.asset(cartItem.food.imagePath),
-//   title: Text(cartItem.food.name),
-//   subtitle: Text(
-//       '${userCart[index].quantity} x \$${cartItem.food.price}'),
-//   trailing: IconButton(
-//     icon: const Icon(Icons.delete),
-//     onPressed: () {
-//       restaurant.removeFromCart(userCart[index]);
-//     },
-//   ),
-// );
