@@ -163,25 +163,22 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
             ),
           ),
         ),
-        // Vissza gomb
-        SafeArea(
-          child: Opacity(
-            opacity: 0.6,
-            child: Container(
-              margin: const EdgeInsets.only(left: 25),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.primary,
+        Opacity(
+          opacity: 0.6,
+          child: Container(
+            margin: const EdgeInsets.only(left: 25),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
               ),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_back_rounded,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           ),
         ),
