@@ -37,6 +37,7 @@ migrate_working_dir/
 # Android specific
 android/local.properties
 android/.gradle/
+android/app/.cxx
 android/app/build/
 android/build/
 
