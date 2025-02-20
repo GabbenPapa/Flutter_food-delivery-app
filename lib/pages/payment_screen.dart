@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:u_credit_card/u_credit_card.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const routeName = '/payment';
@@ -16,9 +16,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
   String expiryDate = '';
   String cardHolderName = '';
   String cvvCode = '';
-  bool isCvvFocused = false;
 
-  void StartPaymentAction() {
+  void startPaymentAction() {
     if (formKey.currentState!.validate()) {
       showDialog(
         context: context,
@@ -26,8 +25,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
           title: Text(
             "Confirm Payment",
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.inversePrimary),
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
           ),
           content: SingleChildScrollView(
             child: ListBody(
@@ -35,22 +35,26 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 Text(
                   "Card Number: $cardNumber",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
                 ),
                 Text(
                   "Expiry Date: $expiryDate",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
                 ),
                 Text(
                   "Card Holder Name: $cardHolderName",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
                 ),
                 Text(
                   "CVV Code: $cvvCode",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
                 ),
               ],
             ),
@@ -65,11 +69,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
             TextButton(
-              onPressed: () => {},
+              onPressed: () {
+                // Itt végezheted a fizetés véglegesítését.
+              },
               child: Text(
                 "Confirm",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary),
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
             )
           ],
@@ -89,99 +96,136 @@ class _PaymentScreenState extends State<PaymentScreen> {
       ),
       body: Column(
         children: [
+          CreditCardUi(
+            width: MediaQuery.of(context).size.width * 0.9,
+            cardHolderFullName:
+                cardHolderName.isEmpty ? 'Your Name' : cardHolderName,
+            cardNumber: cardNumber.isEmpty ? 'XXXX XXXX XXXX XXXX' : cardNumber,
+            validFrom: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
+            validThru: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
+            topLeftColor: Colors.blue,
+            doesSupportNfc: false,
+            placeNfcIconAtTheEnd: false,
+            cardType: CardType.debit,
+            cardProviderLogo: const FlutterLogo(size: 40),
+            cardProviderLogoPosition: CardProviderLogoPosition.right,
+            showBalance: false,
+            balance: 0.0,
+            autoHideBalance: true,
+            enableFlipping: false,
+            cvvNumber: cvvCode,
+          ),
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  CreditCardWidget(
-                    cardNumber: cardNumber,
-                    expiryDate: expiryDate,
-                    cardHolderName: cardHolderName,
-                    cvvCode: cvvCode,
-                    showBackView: false,
-                    onCreditCardWidgetChange: (p0) {},
-                    cardBgColor: Theme.of(context).colorScheme.inversePrimary,
-                    isSwipeGestureEnabled: true,
-                    animationDuration: Duration(milliseconds: 1000),
-                    enableFloatingCard: true,
-                  ),
-                  CreditCardForm(
-                    formKey: formKey,
-                    cardNumber: cardNumber,
-                    expiryDate: expiryDate,
-                    cardHolderName: cardHolderName,
-                    cvvCode: cvvCode,
-                    onCreditCardModelChange: (data) {
-                      setState(() {
-                        cardNumber = data.cardNumber;
-                        expiryDate = data.expiryDate;
-                        cardHolderName = data.cardHolderName;
-                        cvvCode = data.cvvCode;
-                        isCvvFocused = data.isCvvFocused;
-                      });
-                    },
-                    inputConfiguration: InputConfiguration(
-                      cardNumberDecoration: InputDecoration(
-                        fillColor: Theme.of(context).colorScheme.inverseSurface,
-                        border: OutlineInputBorder(),
-                        labelText: 'Number',
+              padding: const EdgeInsets.only(left: 8, right: 8, top: 20),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    // Card Number Field
+                    TextFormField(
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Card Number',
                         hintText: 'XXXX XXXX XXXX XXXX',
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
-                        ),
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                      expiryDateDecoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Expired Date',
-                        hintText: 'XX/XX',
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
-                        ),
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                      cvvCodeDecoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'CVV',
-                        fillColor: Theme.of(context).colorScheme.inverseSurface,
-                        hintText: 'XXX',
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
-                        ),
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                      cardHolderDecoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Card Holder',
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
+                        hintStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
-                      cardNumberTextStyle: TextStyle(
-                        fontSize: 10,
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
-                      cardHolderTextStyle: TextStyle(
-                        fontSize: 10,
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
-                      expiryDateTextStyle: TextStyle(
-                        fontSize: 10,
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
-                      cvvCodeTextStyle: TextStyle(
-                        fontSize: 10,
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
+                      keyboardType: TextInputType.number,
+                      onChanged: (value) {
+                        setState(() {
+                          cardNumber = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter card number';
+                        }
+                        return null;
+                      },
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 16),
+                    // Expiry Date Field
+                    TextFormField(
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: 'Expiry Date',
+                        hintText: 'MM/YY',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.datetime,
+                      onChanged: (value) {
+                        setState(() {
+                          expiryDate = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter expiry date';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    // Card Holder Name Field
+                    TextFormField(
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: 'Card Holder Name',
+                        border: OutlineInputBorder(),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          cardHolderName = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter card holder name';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    // CVV Field
+                    TextFormField(
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                      decoration: const InputDecoration(
+                        labelText: 'CVV',
+                        hintText: 'XXX',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.number,
+                      obscureText: true,
+                      onChanged: (value) {
+                        setState(() {
+                          cvvCode = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter CVV';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
             child: SizedBox(
               width: double.infinity,
               height: 60,
@@ -191,14 +235,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 ),
-                onPressed: () {
-                  StartPaymentAction();
-                },
+                onPressed: startPaymentAction,
                 child: const Text("Pay now"),
               ),
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 60),
         ],
       ),
     );
