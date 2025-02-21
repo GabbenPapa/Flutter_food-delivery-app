@@ -166,7 +166,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
         Opacity(
           opacity: 0.6,
           child: Container(
-            margin: const EdgeInsets.only(left: 25),
+            margin: const EdgeInsets.only(left: 25, top: 25),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Theme.of(context).colorScheme.primary,
