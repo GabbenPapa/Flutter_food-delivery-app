@@ -14,6 +14,7 @@ dependencies:
   shared_preferences: ^2.5.1
   collection: ^1.19.0
   u_credit_card: ^1.4.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

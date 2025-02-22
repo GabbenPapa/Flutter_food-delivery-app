@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
 class Receipt extends StatelessWidget {
   const Receipt({super.key});
@@ -6,7 +8,7 @@ class Receipt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -21,6 +23,7 @@ class Receipt extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Container(
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.onSurface,
                   border: Border.all(
@@ -28,15 +31,25 @@ class Receipt extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "Receipt here...",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Theme.of(context).colorScheme.inversePrimary,
+                padding: const EdgeInsets.all(20.0),
+                child: Consumer<Restaurant>(
+                  builder: (context, restaurant, child) => Text(
+                    restaurant.displayCartReceipt(),
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Estimated Delivery Time: 30 minutes',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  fontSize: 18,
+                ),
+              ),
             ],
           ),
         ));
