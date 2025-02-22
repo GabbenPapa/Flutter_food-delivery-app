@@ -4,6 +4,7 @@ import 'package:food_delivery/pages/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/food.dart';
 import 'pages/cart_screen.dart';
+import 'pages/delivery_progress_screen.dart';
 import 'pages/food_details_screen.dart';
 import 'pages/home_screen.dart';
 import 'pages/payment_screen.dart';
@@ -56,6 +57,8 @@ class MyApp extends StatelessWidget {
                   ),
               CartScreen.routeName: (ctx) => CartScreen(),
               PaymentScreen.routeName: (ctx) => PaymentScreen(),
+              DeliveryProgressScreen.routeName: (ctx) =>
+                  DeliveryProgressScreen(),
             },
           );
         },

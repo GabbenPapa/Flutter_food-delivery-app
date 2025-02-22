@@ -54,7 +54,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ),
                 Text(
-                  "CVV Code: $cvvCode",
+                  "CVV Code: $cvvCode", //mask it
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -68,12 +68,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: Text(
                 "Cancel",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary),
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
             ),
             TextButton(
               onPressed: () {
-                // Itt végezheted a fizetés véglegesítését.
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/delivery_progress');
               },
               child: Text(
                 "Confirm",
@@ -91,7 +93,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.tertiary,
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
