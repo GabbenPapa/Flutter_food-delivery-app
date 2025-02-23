@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/restaurant.dart';
 
 class CurrentLocation extends StatelessWidget {
   const CurrentLocation({super.key});
 
   void openLocationSearchBox(BuildContext context) {
+    final textController = TextEditingController();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -15,8 +19,10 @@ class CurrentLocation extends StatelessWidget {
         ),
         content: TextField(
           cursorColor: Theme.of(context).colorScheme.inversePrimary,
+          controller: textController,
+          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
           decoration: InputDecoration(
-            hintText: "Search address",
+            hintText: "Add a location",
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
@@ -25,7 +31,10 @@ class CurrentLocation extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.pop(context);
+              textController.clear();
+            },
             child: Text(
               "Cancel",
               style: TextStyle(
@@ -35,7 +44,13 @@ class CurrentLocation extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              String newAddress = textController.text;
+              Provider.of<Restaurant>(context, listen: false)
+                  .updateDeliveryAddress(newAddress);
+              textController.clear();
+              Navigator.pop(context);
+            },
             child: Text(
               "Save",
               style: TextStyle(
@@ -65,12 +80,15 @@ class CurrentLocation extends StatelessWidget {
           onTap: () => openLocationSearchBox(context),
           child: Row(
             children: [
-              Text(
-                "1164 Budapest",
-                style: TextStyle(
+              Consumer<Restaurant>(
+                builder: (context, restaurant, child) => Text(
+                  restaurant.deliveryAddress,
+                  style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 12,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               Icon(
                 Icons.keyboard_arrow_down_rounded,

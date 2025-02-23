@@ -179,9 +179,12 @@ class Restaurant extends ChangeNotifier {
     ),
   ];
 
-  //getter
+  String _deliveryAddress = '1164 Budapest, Cinkotai út 12.';
+
+  //getters
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
+  String get deliveryAddress => _deliveryAddress;
 
   final List<CartItem> _cart = [];
 
@@ -280,7 +283,15 @@ class Restaurant extends ChangeNotifier {
 
     receipt.writeln("Total: ${_formatPrice(getTotalPrice())}");
 
+    receipt.writeln();
+    receipt.writeln("Delivery address: $_deliveryAddress");
+
     return receipt.toString();
+  }
+
+  void updateDeliveryAddress(String newAddress) {
+    _deliveryAddress = newAddress;
+    notifyListeners();
   }
 
   String _formatPrice(double price) => "\$${price.toStringAsFixed(2)}";
