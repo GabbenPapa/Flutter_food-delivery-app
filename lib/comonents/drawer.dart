@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/services/auth_services.dart';
+import 'package:food_delivery/services/auth/auth_services.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});

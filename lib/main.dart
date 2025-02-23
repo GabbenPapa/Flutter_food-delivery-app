@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/firebase_options.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
-import 'package:food_delivery/services/auth_gate.dart';
+import 'package:food_delivery/services/auth/auth_gate.dart';
 import 'package:provider/provider.dart';
 import 'models/food.dart';
 import 'pages/cart_screen.dart';

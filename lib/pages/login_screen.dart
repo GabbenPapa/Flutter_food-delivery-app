@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../comonents/textfield.dart';
-import '../services/auth_services.dart';
+import '../services/auth/auth_services.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
