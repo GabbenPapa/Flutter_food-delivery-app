@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/services/auth_services.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});
+
+  void logout() {
+    final authServices = AuthServices();
+    authServices.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +40,11 @@ class HomeDrawer extends StatelessWidget {
             ),
             Spacer(),
             HomeDrowerTile(
-              text: 'L O G I N',
-              icon: Icons.login,
-              onTap: () {
-                Navigator.of(context).pushNamed('/login_screen');
-              },
-            ),
-            HomeDrowerTile(
               text: 'L O G O U T',
               icon: Icons.logout,
-              onTap: () {},
+              onTap: () {
+                logout();
+              },
             ),
           ]),
         ),

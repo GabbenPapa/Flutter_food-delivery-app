@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/firebase_options.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
+import 'package:food_delivery/services/auth_gate.dart';
 import 'package:provider/provider.dart';
 import 'models/food.dart';
 import 'pages/cart_screen.dart';
@@ -16,6 +19,8 @@ import 'themes/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   final themeProvider = ThemeProvider();
   await themeProvider.initializePreferences();
@@ -46,7 +51,7 @@ class MyApp extends StatelessWidget {
                 : themeProvider.isDarkTheme
                     ? ThemeMode.dark
                     : ThemeMode.light,
-            home: HomeScreen(),
+            home: AuthGate(),
             routes: {
               HomeScreen.routeName: (ctx) => const HomeScreen(),
               LoginScreen.routeName: (ctx) => LoginScreen(),

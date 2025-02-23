@@ -17,16 +17,21 @@ class LoginTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: obscureText,
+      keyboardType: hintText.toLowerCase().contains('email')
+          ? TextInputType.emailAddress
+          : TextInputType.text,
       style: TextStyle(
           color: Theme.of(context).colorScheme.inversePrimary, fontSize: 16),
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Theme.of(context).colorScheme.tertiary,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary),
+          borderSide:
+              BorderSide(color: Theme.of(context).colorScheme.inversePrimary),
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.inversePrimary),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
         hintText: hintText,

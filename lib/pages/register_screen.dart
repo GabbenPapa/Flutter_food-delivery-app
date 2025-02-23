@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../comonents/textfield.dart';
+import '../services/auth_services.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -18,6 +19,42 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  void register() async {
+    final _authServices = AuthServices();
+
+    if (widget.passwordController.text ==
+        widget.passwordConfirmController.text) {
+      try {
+        await _authServices.signUpWithEmailPassword(
+            widget.emailController.text, widget.passwordController.text);
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text("Error"),
+            content: Text(e.toString()),
+          ),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(
+            "Error",
+            style:
+                TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          ),
+          content: Text(
+            "Passwords do not match",
+            style:
+                TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,13 +92,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
               LoginTextField(
                 controller: widget.passwordController,
                 hintText: 'Password',
-                obscureText: false,
+                obscureText: true,
               ),
               const SizedBox(height: 20),
 
               // Password Confirm
               LoginTextField(
-                controller: widget.passwordController,
+                controller: widget.passwordConfirmController,
                 hintText: 'Password',
                 obscureText: true,
               ),
@@ -78,7 +115,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     foregroundColor:
                         Theme.of(context).colorScheme.inversePrimary,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    register();
+                  },
                   child: const Text(
                     "Register",
                     style: TextStyle(fontSize: 16),

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../comonents/textfield.dart';
+import '../services/auth_services.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,6 +18,25 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  void login() async {
+    final _authServices = AuthServices();
+
+    try {
+      await _authServices.signInWithEmail(
+          widget.emailController.text, widget.passwordController.text);
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Error"),
+          content: Text(e.toString()),
+        ),
+      );
+    }
+  }
+
+  void forgotPassword() async {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Theme.of(context).colorScheme.inversePrimary,
                   ),
                   onPressed: () {
-                    if (kDebugMode) {
-                      print('Sign In');
-                    }
+                    login();
                   },
                   child: const Text(
                     "Sign In",
