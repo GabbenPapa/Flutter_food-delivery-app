@@ -47,6 +47,19 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      name: "Burger attack",
+      description:
+          "If you are realy hungry, this is the burger for you. Burgers with lettuce, toasted buns and our special sauce on a whole wheat bun",
+      imagePath: "assets/images/burgers/ThreeBurgers.jpeg",
+      price: 3.99,
+      category: FoodCategory.burgers,
+      availableAddons: [
+        Addon(name: "Extra souse", price: 0.50),
+        Addon(name: "Fries", price: 2.50),
+        Addon(name: "Extra lettuce", price: 0.50),
+      ],
+    ),
+    Food(
       name: "Vega burger",
       description:
           "Vega burger with lettuce, toasted buns and our special sauce on a whole wheat bun",
@@ -176,6 +189,23 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [
         Addon(name: "Extra olives", price: 0.50),
       ],
+    ),
+    Food(
+      name: "Onion Rings",
+      description: "Golden and crispy onion rings perfect for dipping.",
+      imagePath: "assets/images/sides/OnionRings.webp",
+      price: 3.99,
+      category: FoodCategory.sides,
+      availableAddons: [],
+    ),
+    Food(
+      name: "Garlic Bread",
+      description:
+          "Warm and toasty garlic bread tooped with melted butter and parsley.",
+      imagePath: "assets/images/sides/GarlicBread.webp",
+      price: 2.99,
+      category: FoodCategory.sides,
+      availableAddons: [],
     ),
   ];
 
