@@ -20,12 +20,12 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   void register() async {
-    final _authServices = AuthServices();
+    final authServices = AuthServices();
 
     if (widget.passwordController.text ==
         widget.passwordConfirmController.text) {
       try {
-        await _authServices.signUpWithEmailPassword(
+        await authServices.signUpWithEmailPassword(
             widget.emailController.text, widget.passwordController.text);
       } catch (e) {
         showDialog(

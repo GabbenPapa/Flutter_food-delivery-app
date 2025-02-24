@@ -19,10 +19,10 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   void login() async {
-    final _authServices = AuthServices();
+    final authServices = AuthServices();
 
     try {
-      await _authServices.signInWithEmail(
+      await authServices.signInWithEmail(
           widget.emailController.text, widget.passwordController.text);
     } catch (e) {
       showDialog(
