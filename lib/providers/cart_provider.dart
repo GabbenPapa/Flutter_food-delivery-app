@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/models/food.dart';
+import 'package:food_delivery/providers/delivery_provider.dart';
 import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -89,7 +90,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   String displayCartReceipt(context) {
-    final restaurant = Provider.of<Restaurant>(context, listen: false);
+    final restaurant = Provider.of<DeliveryProvider>(context, listen: false);
     final address = restaurant.deliveryAddress;
 
     final receipt = StringBuffer();

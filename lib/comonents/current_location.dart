@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/providers/delivery_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/restaurant.dart';
@@ -46,7 +47,7 @@ class CurrentLocation extends StatelessWidget {
           TextButton(
             onPressed: () {
               String newAddress = textController.text;
-              Provider.of<Restaurant>(context, listen: false)
+              Provider.of<DeliveryProvider>(context, listen: false)
                   .updateDeliveryAddress(newAddress);
               textController.clear();
               Navigator.pop(context);
@@ -80,9 +81,9 @@ class CurrentLocation extends StatelessWidget {
           onTap: () => openLocationSearchBox(context),
           child: Row(
             children: [
-              Consumer<Restaurant>(
-                builder: (context, restaurant, child) => Text(
-                  restaurant.deliveryAddress,
+              Consumer<DeliveryProvider>(
+                builder: (context, delivery, child) => Text(
+                  delivery.deliveryAddress,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 12,
