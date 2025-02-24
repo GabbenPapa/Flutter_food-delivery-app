@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../comonents/receipt.dart';
-import '../providers/restaurant.dart';
 import '../services/database/database.dart';
 
 class DeliveryProgressScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class _DeliveryProgressScreenState extends State<DeliveryProgressScreen> {
   void initState() {
     super.initState();
 
-    String receipt = context.read<Restaurant>().displayCartReceipt();
+    String receipt = context.read<CartProvider>().displayCartReceipt(context);
     db.saveOrdersToDatabase(receipt);
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
@@ -32,9 +33,9 @@ class Receipt extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 padding: const EdgeInsets.all(20.0),
-                child: Consumer<Restaurant>(
+                child: Consumer<CartProvider>(
                   builder: (context, restaurant, child) => Text(
-                    restaurant.displayCartReceipt(),
+                    restaurant.displayCartReceipt(context),
                     style: TextStyle(
                       fontSize: 16,
                       color: Theme.of(context).colorScheme.inversePrimary,

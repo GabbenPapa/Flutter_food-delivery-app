@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
@@ -10,8 +11,8 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Restaurant>(builder: (context, restaurant, child) {
-      final userCart = restaurant.cart;
+    return Consumer<CartProvider>(builder: (context, cartItem, child) {
+      final userCart = cartItem.cart;
 
       return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.onSurface,
@@ -40,7 +41,7 @@ class CartScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () => {
-                          restaurant.clearCart(),
+                          cartItem.clearCart(),
                           Navigator.pop(context),
                         },
                         child: const Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import '../models/food.dart';
 import '../providers/restaurant.dart';
@@ -33,7 +34,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
         currentlySelectedAddons.add(addon);
       }
     }
-    context.read<Restaurant>().addToCart(food, currentlySelectedAddons);
+    context.read<CartProvider>().addToCart(food, currentlySelectedAddons);
   }
 
   Widget _buildAddOnsSection(BuildContext context) {
