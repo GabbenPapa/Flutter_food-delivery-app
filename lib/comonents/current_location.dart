@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/restaurant.dart';
+import '../providers/restaurant.dart';
 
 class CurrentLocation extends StatelessWidget {
   const CurrentLocation({super.key});

@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/firebase_options.dart';
-import 'package:food_delivery/models/restaurant.dart';
+import 'package:food_delivery/providers/restaurant.dart';
 import 'package:food_delivery/pages/login_screen.dart';
 import 'package:food_delivery/services/auth/auth_gate.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +15,7 @@ import 'pages/register_screen.dart';
 import 'pages/settings_screen.dart';
 import 'themes/dark_theme.dart';
 import 'themes/light_theme.dart';
-import 'themes/theme_provider.dart';
+import 'providers/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:food_delivery/main.dart';
-import 'package:food_delivery/themes/theme_provider.dart';
+import 'package:food_delivery/providers/theme_provider.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

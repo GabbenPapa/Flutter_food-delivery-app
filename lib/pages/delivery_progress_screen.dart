@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../comonents/receipt.dart';
-import '../models/restaurant.dart';
+import '../providers/restaurant.dart';
 import '../services/database/database.dart';
 
 class DeliveryProgressScreen extends StatefulWidget {
