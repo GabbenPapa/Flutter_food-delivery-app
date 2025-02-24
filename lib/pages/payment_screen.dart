@@ -53,12 +53,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
-                Text(
-                  "CVV Code: $cvvCode", //mask it
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
-                ),
               ],
             ),
           ),
