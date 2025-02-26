@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:food_delivery/firebase_options.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:food_delivery/providers/delivery_provider.dart';
@@ -27,6 +28,7 @@ void main() async {
   final themeProvider = ThemeProvider();
   await themeProvider.initializePreferences();
 
+  //debugPaintSizeEnabled = true;
   runApp(MyApp(themeProvider));
 }
 
