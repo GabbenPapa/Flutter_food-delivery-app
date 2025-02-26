@@ -28,6 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         await authServices.signUpWithEmailPassword(
             widget.emailController.text, widget.passwordController.text);
       } catch (e) {
+        if (!mounted) return;
         showDialog(
           context: context,
           builder: (context) => AlertDialog(

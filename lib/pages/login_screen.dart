@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../comonents/textfield.dart';
@@ -25,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
       await authServices.signInWithEmail(
           widget.emailController.text, widget.passwordController.text);
     } catch (e) {
+      if (!mounted) return;
+
       showDialog(
         context: context,
         builder: (context) => AlertDialog(

@@ -57,7 +57,6 @@ class _SettingsState extends State<Settings> {
 
       if (serviceModeTapCounter >= 4) {
         isServiceMode = !isServiceMode;
-        print('Service Mode: $isServiceMode');
         serviceModeTapCounter = 0;
       }
     });

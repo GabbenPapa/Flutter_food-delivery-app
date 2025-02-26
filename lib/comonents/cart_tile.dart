@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/comonents/quantity_selector.dart';
 import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
-import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
 class CartTile extends StatelessWidget {

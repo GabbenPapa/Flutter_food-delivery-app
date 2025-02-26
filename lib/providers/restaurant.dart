@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import '../models/food.dart';
 
 import 'dart:convert';
@@ -406,15 +406,21 @@ class Restaurant extends ChangeNotifier {
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode(item),
         );
-
+        //Todo Error handling
         if (response.statusCode == 200 || response.statusCode == 201) {
-          print("${item['name']} sikeresen feltöltve!");
+          if (kDebugMode) {
+            print("${item['name']} sikeresen feltöltve!");
+          }
         } else {
-          print("Hiba történt (${item['name']}): ${response.body}");
+          if (kDebugMode) {
+            print("Hiba történt (${item['name']}): ${response.body}");
+          }
         }
       }
     } catch (error) {
-      print("Hálózati hiba: $error");
+      if (kDebugMode) {
+        print("Hálózati hiba: $error");
+      }
     }
   }
 }
