@@ -89,28 +89,33 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
         Scaffold(
           backgroundColor: Theme.of(context).colorScheme.onSurface,
           body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Hero(
-                  tag: "food_details_${widget.food.name}",
-                  child: Image.asset(
-                    widget.food.imagePath,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 16.0,
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: 26.0,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 16.0,
-                      left: 16.0,
-                      right: 16.0,
-                      bottom: 26.0,
-                    ),
-                    child: Column(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Hero(
+                          tag: "food_details_${widget.food.name}",
+                          child: Image.asset(
+                            widget.food.imagePath,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
                         Text(
                           widget.food.name,
                           style: TextStyle(
@@ -138,33 +143,29 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                           color: Theme.of(context).colorScheme.primary,
                         ),
                         _buildAddOnsSection(context),
-                        const SizedBox(height: 20),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 60,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(fontSize: 25),
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.primary,
-                              foregroundColor:
-                                  Theme.of(context).colorScheme.inversePrimary,
-                            ),
-                            onPressed: () => addToCart(
-                              widget.food,
-                              selectedAddons,
-                            ),
-                            child: const Text(
-                              "Add to Cart",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
-                  ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 25),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.inversePrimary,
+                        ),
+                        onPressed: () => addToCart(widget.food, selectedAddons),
+                        child: const Text(
+                          "Add to Cart",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
