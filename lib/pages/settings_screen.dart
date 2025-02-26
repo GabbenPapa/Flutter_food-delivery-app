@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:food_delivery/pages/home_screen.dart';
+import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/theme_provider.dart';
@@ -15,6 +19,8 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   late String _selectedLanguage = 'English';
+  var isServiceMode = false;
+  int serviceModeTapCounter = 0;
   final Map<String, String> languageMap = {
     'English': 'en',
     'Hungarian': 'hu',
@@ -37,6 +43,24 @@ class _SettingsState extends State<Settings> {
     //           (entry) => entry.value == languageProvider.currentLanguage)
     //       .key,
     // );
+  }
+
+  @override
+  void dispose() {
+    isServiceMode = false;
+    super.dispose();
+  }
+
+  void serviceMode() {
+    setState(() {
+      serviceModeTapCounter++;
+
+      if (serviceModeTapCounter >= 4) {
+        isServiceMode = !isServiceMode;
+        print('Service Mode: $isServiceMode');
+        serviceModeTapCounter = 0;
+      }
+    });
   }
 
   Future<void> _resetIntro() async {
@@ -167,32 +191,89 @@ class _SettingsState extends State<Settings> {
                   activeTrackColor: Theme.of(context).colorScheme.secondary,
                   inactiveTrackColor: Theme.of(context).colorScheme.secondary,
                 ),
+                TweenAnimationBuilder(
+                  tween: Tween<double>(begin: 0, end: 1),
+                  duration: Duration(seconds: 60),
+                  builder: (context, double value, child) {
+                    return Transform.rotate(
+                      angle: value * 2 * pi,
+                      child: child,
+                    );
+                  },
+                  child: SizedBox(
+                    height: 200,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: GestureDetector(
+                              onTap: () => (serviceMode()),
+                              child: Icon(
+                                Icons.settings,
+                                size: 100,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
 
                 const Spacer(),
-
-                // SizedBox(
-                //   width: double.infinity,
-                //   height: 80,
-                //   child: ElevatedButton(
-                //     onPressed: () => {
-                //       _resetIntro(),
-                //       _resetLanguage(),
-                //       _resetTheme(),
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(LauncherScreen.routeName)
-                //     },
-                //     style: ElevatedButton.styleFrom(
-                //       backgroundColor: Colors.red,
-                //     ),
-                //     child: Text(
-                //       AppLocalizations.of(context)!.factoryReset,
-                //       style: const TextStyle(
-                //         color: Colors.white,
-                //         fontSize: 25,
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                if (isServiceMode)
+                  SizedBox(
+                    width: double.infinity,
+                    height: 60,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 25),
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        foregroundColor:
+                            Theme.of(context).colorScheme.inversePrimary,
+                      ),
+                      onPressed: () {
+                        Provider.of<Restaurant>(context, listen: false)
+                            .uploadMenu();
+                      },
+                      child: const Text(
+                        "Push to db",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () => {
+                      _resetIntro(),
+                      _resetLanguage(),
+                      _resetTheme(),
+                      Navigator.of(context)
+                          .pushReplacementNamed(HomeScreen.routeName)
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    child: Text(
+                      'Factory Reset',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
