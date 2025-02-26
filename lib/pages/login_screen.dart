@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/pages/home_screen.dart';
 
 import '../comonents/textfield.dart';
 import '../services/auth/auth_services.dart';
@@ -23,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await authServices.signInWithEmail(
           widget.emailController.text, widget.passwordController.text);
+      if (!mounted) return;
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     } catch (e) {
       if (!mounted) return;
 
