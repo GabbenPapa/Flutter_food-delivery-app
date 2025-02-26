@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import '../models/food.dart';
-import '../providers/restaurant.dart';
 
 class FoodDetailsScreen extends StatefulWidget {
   static const routeName = '/food_screen';
@@ -95,9 +94,6 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: 16.0,
-                  left: 16.0,
-                  right: 16.0,
                   bottom: 26.0,
                 ),
                 child: Column(
@@ -116,26 +112,41 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        Text(
-                          widget.food.name,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Theme.of(context).colorScheme.inverseSurface,
-                          ),
-                        ),
-                        Text(
-                          '\$${widget.food.price}',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          widget.food.description,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Theme.of(context).colorScheme.inversePrimary,
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(left: 16.0, right: 16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.food.name,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inverseSurface,
+                                ),
+                              ),
+                              Text(
+                                '\$${widget.food.price}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                widget.food.description,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -145,21 +156,25 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                         _buildAddOnsSection(context),
                       ],
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 60,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          textStyle: const TextStyle(fontSize: 25),
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primary,
-                          foregroundColor:
-                              Theme.of(context).colorScheme.inversePrimary,
-                        ),
-                        onPressed: () => addToCart(widget.food, selectedAddons),
-                        child: const Text(
-                          "Add to Cart",
-                          style: TextStyle(fontSize: 16),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 60,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            textStyle: const TextStyle(fontSize: 25),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            foregroundColor:
+                                Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                          onPressed: () =>
+                              addToCart(widget.food, selectedAddons),
+                          child: const Text(
+                            "Add to Cart",
+                            style: TextStyle(fontSize: 16),
+                          ),
                         ),
                       ),
                     ),
