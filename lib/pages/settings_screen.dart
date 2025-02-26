@@ -106,7 +106,12 @@ class _SettingsState extends State<Settings> {
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(
+              top: 16.0,
+              left: 16.0,
+              right: 16.0,
+              bottom: 26.0,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

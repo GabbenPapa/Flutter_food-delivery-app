@@ -102,7 +102,12 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.only(
+                      top: 16.0,
+                      left: 16.0,
+                      right: 16.0,
+                      bottom: 26.0,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -155,7 +160,6 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 40),
                       ],
                     ),
                   ),

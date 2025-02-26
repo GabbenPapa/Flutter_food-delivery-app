@@ -32,29 +32,27 @@ class _PaymentScreenState extends State<PaymentScreen> {
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: [
-                Text(
-                  "Card Number: $cardNumber",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+          content: ListBody(
+            children: [
+              Text(
+                "Card Number: $cardNumber",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                Text(
-                  "Expiry Date: $expiryDate",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+              ),
+              Text(
+                "Expiry Date: $expiryDate",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                Text(
-                  "Card Holder Name: $cardHolderName",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+              ),
+              Text(
+                "Card Holder Name: $cardHolderName",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           actions: [
             TextButton(
@@ -93,75 +91,75 @@ class _PaymentScreenState extends State<PaymentScreen> {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Checkout'),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CreditCardUi(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  cardHolderFullName:
-                      cardHolderName.isEmpty ? 'Your Name' : cardHolderName,
-                  cardNumber:
-                      cardNumber.isEmpty ? 'XXXX XXXX XXXX XXXX' : cardNumber,
-                  validFrom: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
-                  validThru: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
-                  topLeftColor: Colors.blue,
-                  doesSupportNfc: false,
-                  placeNfcIconAtTheEnd: false,
-                  cardType: CardType.debit,
-                  cardProviderLogo: const FlutterLogo(size: 40),
-                  cardProviderLogoPosition: CardProviderLogoPosition.right,
-                  showBalance: false,
-                  balance: 0.0,
-                  autoHideBalance: true,
-                  enableFlipping: false,
-                  cvvNumber: cvvCode,
-                ),
-                const SizedBox(height: 20),
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      // Card Number Field
-                      _cardNumnberField(),
-                      const SizedBox(height: 16),
-                      // Expiry Date Field
-                      _expiryDateField(),
-                      const SizedBox(height: 16),
-                      // Card Holder Name Field
-                      _cardHolderNameField(),
-                      const SizedBox(height: 16),
-                      // CVV Field
-                      _cvvField(),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 25),
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor:
-                          Theme.of(context).colorScheme.inversePrimary,
-                    ),
-                    onPressed: startPaymentAction,
-                    child: Text(
-                      "Pay Now",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).colorScheme.inversePrimary),
-                    ),
-                  ),
-                ),
-              ],
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 16.0,
+          left: 16.0,
+          right: 16.0,
+          bottom: 26.0,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CreditCardUi(
+              width: MediaQuery.of(context).size.width * 0.9,
+              cardHolderFullName:
+                  cardHolderName.isEmpty ? 'Your Name' : cardHolderName,
+              cardNumber:
+                  cardNumber.isEmpty ? 'XXXX XXXX XXXX XXXX' : cardNumber,
+              validFrom: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
+              validThru: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
+              topLeftColor: Colors.blue,
+              doesSupportNfc: false,
+              placeNfcIconAtTheEnd: false,
+              cardType: CardType.debit,
+              cardProviderLogo: const FlutterLogo(size: 40),
+              cardProviderLogoPosition: CardProviderLogoPosition.right,
+              showBalance: false,
+              balance: 0.0,
+              autoHideBalance: true,
+              enableFlipping: false,
+              cvvNumber: cvvCode,
             ),
-          ),
+            const SizedBox(height: 20),
+            Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  // Card Number Field
+                  _cardNumnberField(),
+                  const SizedBox(height: 16),
+                  // Expiry Date Field
+                  _expiryDateField(),
+                  const SizedBox(height: 16),
+                  // Card Holder Name Field
+                  _cardHolderNameField(),
+                  const SizedBox(height: 16),
+                  // CVV Field
+                  _cvvField(),
+                ],
+              ),
+            ),
+            Spacer(),
+            SizedBox(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 25),
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+                ),
+                onPressed: startPaymentAction,
+                child: Text(
+                  "Pay Now",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.inversePrimary),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

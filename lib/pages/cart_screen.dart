@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
-import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
 import '../comonents/cart_tile.dart';
@@ -11,57 +10,62 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CartProvider>(builder: (context, cartItem, child) {
-      final userCart = cartItem.cart;
+    return Consumer<CartProvider>(
+      builder: (context, cartItem, child) {
+        final userCart = cartItem.cart;
 
-      return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.onSurface,
-        appBar: AppBar(
-          title: Text('Cart (${userCart.length})'),
-          backgroundColor: Colors.transparent,
-          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-          actions: [
-            IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(
-                      "Are you sure you want to clear the cart?",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
+        return Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.onSurface,
+          appBar: AppBar(
+            title: Text('Cart (${userCart.length})'),
+            backgroundColor: Colors.transparent,
+            foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text(
+                        "Are you sure you want to clear the cart?",
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
                       ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text(
+                            "Cancel",
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => {
+                            cartItem.clearCart(),
+                            Navigator.pop(context),
+                          },
+                          child: const Text(
+                            "Yes",
+                          ),
+                        ),
+                      ],
                     ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text(
-                          "Cancel",
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () => {
-                          cartItem.clearCart(),
-                          Navigator.pop(context),
-                        },
-                        child: const Text(
-                          "Yes",
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              icon: Icon(
-                Icons.delete,
-                color: Theme.of(context).colorScheme.inversePrimary,
+                  );
+                },
+                icon: Icon(
+                  Icons.delete,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
+            ],
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(
+              top: 16.0,
+              left: 16.0,
+              right: 16.0,
+              bottom: 26.0,
             ),
-          ],
-        ),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Expanded(
@@ -113,12 +117,11 @@ class CartScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
               ],
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
