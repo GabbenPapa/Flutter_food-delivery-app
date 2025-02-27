@@ -21,42 +21,46 @@ class CartScreen extends StatelessWidget {
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             actions: [
-              IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text(
-                        "Are you sure you want to clear the cart?",
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.inversePrimary,
-                        ),
+              userCart.isEmpty
+                  ? const SizedBox()
+                  : IconButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              "Are you sure you want to clear the cart?",
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary,
+                              ),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Text(
+                                  "Cancel",
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () => {
+                                  cartItem.clearCart(),
+                                  Navigator.pop(context),
+                                },
+                                child: const Text(
+                                  "Yes",
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.delete,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text(
-                            "Cancel",
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () => {
-                            cartItem.clearCart(),
-                            Navigator.pop(context),
-                          },
-                          child: const Text(
-                            "Yes",
-                          ),
-                        ),
-                      ],
                     ),
-                  );
-                },
-                icon: Icon(
-                  Icons.delete,
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                ),
-              ),
             ],
           ),
           body: Padding(
@@ -77,8 +81,9 @@ class CartScreen extends StatelessWidget {
                                 child: Text(
                                   "Cart is empty",
                                   style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary,
                                     fontSize: 20,
                                   ),
                                 ),
@@ -105,12 +110,15 @@ class CartScreen extends StatelessWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 25),
-                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      backgroundColor: userCart.isEmpty
+                          ? const Color.fromARGB(255, 225, 225, 225)
+                          : Theme.of(context).colorScheme.primary,
                       foregroundColor:
                           Theme.of(context).colorScheme.inversePrimary,
                     ),
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed('/payment'),
+                    onPressed: () => userCart.isEmpty
+                        ? null
+                        : Navigator.of(context).pushNamed('/payment'),
                     child: const Text(
                       "Checkout",
                       style: TextStyle(fontSize: 16),
