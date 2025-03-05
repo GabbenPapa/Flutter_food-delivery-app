@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 class Restaurant extends ChangeNotifier {
   final List<Food> _menu = [
     Food(
+      id: "id0001",
       name: "Classic burger",
       description:
           "Classic burger with cheese and lettuce, toasted buns and our special sauce on a whole wheat bun",
@@ -21,6 +22,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0002",
       name: "Cheese burger",
       description:
           "Cheese burger with cheese and lettuce, toasted buns and our special sauce on a whole wheat bun",
@@ -34,6 +36,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0003",
       name: "Bacon burger",
       description:
           "Bacon burger and lettuce, the meet and cheese is a whole wheat bun.",
@@ -47,6 +50,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0004",
       name: "Burger attack",
       description:
           "If you are realy hungry, this is the burger for you. Burgers with lettuce, toasted buns and our special sauce on a whole wheat bun",
@@ -60,6 +64,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0005",
       name: "Vega burger",
       description:
           "Vega burger with lettuce, toasted buns and our special sauce on a whole wheat bun",
@@ -73,6 +78,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0006",
       name: "Ice cream bowl",
       description:
           "It is a giant ice cream bowl with our special toppings, vanilla ice cream, and a whole wheat bun",
@@ -84,6 +90,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0007",
       name: "Waffle",
       description:
           "Fresh and chrunchy waffles with our special chocolate syrup, and fruits.",
@@ -96,6 +103,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0008",
       name: "Cakes",
       description: "It is a cake selection, with chocolate shake",
       imagePath: "assets/images/desserts/Desserts.webp",
@@ -106,6 +114,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0009",
       name: "Lager Beer",
       description: "Teasty lager beer, the original recipe from the 1890s",
       imagePath: "assets/images/drinks/Beer.jpeg",
@@ -114,6 +123,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [],
     ),
     Food(
+      id: "id0010",
       name: "Coffee",
       description: "Original Italian coffee",
       imagePath: "assets/images/drinks/Coffee.jpeg",
@@ -122,6 +132,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [],
     ),
     Food(
+      id: "id0011",
       name: "Cold Drinks",
       description:
           "Cold drinks in Fanta, Coke and Sprite, with ice or without ice",
@@ -131,6 +142,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [],
     ),
     Food(
+      id: "id0012",
       name: "Lemonade",
       description:
           "Cold lemonade in maracuja, orange, lemon and lime, with ice or without ice",
@@ -140,6 +152,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [],
     ),
     Food(
+      id: "id0013",
       name: "Eggs Salad",
       description: "Salad with eggs and lots of vegetables.",
       imagePath: "assets/images/salads/EggsSalad.jpeg",
@@ -150,6 +163,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0014",
       name: "Greek Salad",
       description:
           "Traditional Greek salad with lots of vegetables and olives, feta cheese.",
@@ -161,6 +175,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0015",
       name: "Ham Salad",
       description: "Ham Salad with lots of vegetables, olives and cheese.",
       imagePath: "assets/images/salads/HamSalad.jpeg",
@@ -171,6 +186,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0016",
       name: "Salad",
       description: "Original vegetables salad.",
       imagePath: "assets/images/salads/Salad.webp",
@@ -181,6 +197,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0017",
       name: "Wurst Salad",
       description: "Wurst and vegetable mix in the best way",
       imagePath: "assets/images/salads/WurstSalad.jpeg",
@@ -191,6 +208,7 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
     Food(
+      id: "id0018",
       name: "Onion Rings",
       description: "Golden and crispy onion rings perfect for dipping.",
       imagePath: "assets/images/sides/OnionRings.webp",
@@ -199,6 +217,7 @@ class Restaurant extends ChangeNotifier {
       availableAddons: [],
     ),
     Food(
+      id: "id0019",
       name: "Garlic Bread",
       description:
           "Warm and toasty garlic bread tooped with melted butter and parsley.",
