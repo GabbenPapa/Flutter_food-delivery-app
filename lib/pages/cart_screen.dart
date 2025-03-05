@@ -104,27 +104,27 @@ class CartScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 25),
-                      backgroundColor: userCart.isEmpty
-                          ? const Color.fromARGB(255, 225, 225, 225)
-                          : Theme.of(context).colorScheme.primary,
-                      foregroundColor:
-                          Theme.of(context).colorScheme.inversePrimary,
-                    ),
-                    onPressed: () => userCart.isEmpty
-                        ? null
-                        : Navigator.of(context).pushNamed('/payment'),
-                    child: const Text(
-                      "Checkout",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
+                userCart.isEmpty
+                    ? const SizedBox()
+                    : SizedBox(
+                        width: double.infinity,
+                        height: 60,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            textStyle: const TextStyle(fontSize: 25),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            foregroundColor:
+                                Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                          onPressed: () =>
+                              Navigator.of(context).pushNamed('/payment'),
+                          child: const Text(
+                            "Checkout",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
               ],
             ),
           ),
