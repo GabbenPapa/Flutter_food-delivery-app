@@ -4,7 +4,6 @@ import 'package:food_delivery/comonents/food_tile.dart';
 import 'package:food_delivery/comonents/tab_bar.dart';
 import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/providers/menu_provider.dart';
-import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
 
 import '../comonents/description_box.dart';
@@ -22,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+
   @override
   void initState() {
     super.initState();
@@ -83,11 +83,19 @@ class _HomeScreenState extends State<HomeScreen>
             child: Container(),
           )
         ],
-        body: Consumer<Restaurant>(
-          builder: (context, restaurant, child) => TabBarView(
-            controller: _tabController,
-            children: getFoodItemInCategory(restaurant.menu),
-          ),
+        body: Consumer<MenuProvider>(
+          builder: (context, menuProvider, child) {
+            final menu = menuProvider.menu;
+
+            if (menu.isEmpty) {
+              return Center(child: CircularProgressIndicator());
+            }
+
+            return TabBarView(
+              controller: _tabController,
+              children: getFoodItemInCategory(menu),
+            );
+          },
         ),
       ),
     );
