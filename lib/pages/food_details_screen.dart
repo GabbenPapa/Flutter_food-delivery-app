@@ -33,7 +33,8 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
         currentlySelectedAddons.add(addon);
       }
     }
-    context.read<CartProvider>().addToCart(food, currentlySelectedAddons);
+    Provider.of<CartProvider>(context, listen: false)
+        .addToCart(food, currentlySelectedAddons);
   }
 
   Widget _buildAddOnsSection(BuildContext context) {
