@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/pages/home_screen.dart';
 import 'package:food_delivery/providers/restaurant.dart';
 import 'package:provider/provider.dart';
-
+import '../providers/language_provider.dart';
 import '../providers/theme_provider.dart';
-// import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
   static const routeName = '/settings';
@@ -35,14 +35,14 @@ class _SettingsState extends State<Settings> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // final languageProvider =
-    //     Provider.of<LanguageProvider>(context, listen: false);
-    // setSelectedLanguage(
-    //   languageMap.entries
-    //       .firstWhere(
-    //           (entry) => entry.value == languageProvider.currentLanguage)
-    //       .key,
-    // );
+    final languageProvider =
+        Provider.of<LanguageProvider>(context, listen: false);
+    setSelectedLanguage(
+      languageMap.entries
+          .firstWhere(
+              (entry) => entry.value == languageProvider.locale.languageCode)
+          .key,
+    );
   }
 
   @override
@@ -67,19 +67,19 @@ class _SettingsState extends State<Settings> {
   }
 
   Future<void> _resetLanguage() async {
-    // final languageProvider =
-    //     Provider.of<LanguageProvider>(context, listen: false);
+    final languageProvider =
+        Provider.of<LanguageProvider>(context, listen: false);
 
-    // const defaultLanguageCode = 'en';
-    // await languageProvider.setLanguage(defaultLanguageCode);
+    const defaultLanguageCode = 'en';
+    await languageProvider.setLocale(defaultLanguageCode);
 
-    // if (!mounted) return;
+    if (!mounted) return;
 
-    // setSelectedLanguage(
-    //   languageMap.entries
-    //       .firstWhere((entry) => entry.value == defaultLanguageCode)
-    //       .key,
-    // );
+    setSelectedLanguage(
+      languageMap.entries
+          .firstWhere((entry) => entry.value == defaultLanguageCode)
+          .key,
+    );
   }
 
   Future<void> _resetTheme() async {
@@ -89,6 +89,8 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     // final themeProvider = Provider.of<ThemeProvider>(context);
     // final theme = Theme.of(context);
     // final customTheme = theme.extension<CustomThemeExtension>();
@@ -97,7 +99,7 @@ class _SettingsState extends State<Settings> {
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       // appBar: AppBar(title: Text(AppLocalizations.of(context)!.settings)),
       appBar: AppBar(
-        title: Text('Settings'),
+        title: Text(localizations.settings),
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
@@ -116,9 +118,8 @@ class _SettingsState extends State<Settings> {
               children: [
                 // Language Dropdown
                 ListTile(
-                  // title: Text(AppLocalizations.of(context)!.language),
                   title: Text(
-                    'Language',
+                    localizations.language,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),

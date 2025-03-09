@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:food_delivery/generated/l10n.dart';
 import '../comonents/cart_tile.dart';
 
 class CartScreen extends StatelessWidget {
@@ -13,11 +13,12 @@ class CartScreen extends StatelessWidget {
     return Consumer<CartProvider>(
       builder: (context, cartItem, child) {
         final userCart = cartItem.cart;
+        final localizations = AppLocalizations.of(context);
 
         return Scaffold(
           backgroundColor: Theme.of(context).colorScheme.onSurface,
           appBar: AppBar(
-            title: Text('Cart (${userCart.length})'),
+            title: Text('${localizations.cartTitle} (${userCart.length})'),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             actions: [
@@ -29,7 +30,7 @@ class CartScreen extends StatelessWidget {
                           context: context,
                           builder: (context) => AlertDialog(
                             title: Text(
-                              "Are you sure you want to clear the cart?",
+                              localizations.clearCartDialogTitle,
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme
@@ -39,8 +40,8 @@ class CartScreen extends StatelessWidget {
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.pop(context),
-                                child: const Text(
-                                  "Cancel",
+                                child: Text(
+                                  localizations.cancel,
                                 ),
                               ),
                               TextButton(
@@ -48,8 +49,8 @@ class CartScreen extends StatelessWidget {
                                   cartItem.clearCart(),
                                   Navigator.pop(context),
                                 },
-                                child: const Text(
-                                  "Yes",
+                                child: Text(
+                                  localizations.yes,
                                 ),
                               ),
                             ],
@@ -79,7 +80,7 @@ class CartScreen extends StatelessWidget {
                           ? Expanded(
                               child: Center(
                                 child: Text(
-                                  "Cart is empty",
+                                  localizations.cartIsEmpty,
                                   style: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme
@@ -119,8 +120,8 @@ class CartScreen extends StatelessWidget {
                           ),
                           onPressed: () =>
                               Navigator.of(context).pushNamed('/payment'),
-                          child: const Text(
-                            "Checkout",
+                          child: Text(
+                            localizations.checkout,
                             style: TextStyle(fontSize: 16),
                           ),
                         ),

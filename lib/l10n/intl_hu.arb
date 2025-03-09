@@ -1,0 +1,12 @@
+{
+  "@@locale": "hu",
+  "cartTitle": "Kosár",
+  "cartIsEmpty": "A kosár üres",
+  "clearCartDialogTitle": "Biztosan törölni szeretné a kosarat?",
+  "cancel": "Mégse",
+  "yes": "Igen",
+  "checkout": "Pénztár",
+
+	"language" : "Nyelv",
+	"settings": "Beállítások"
+}

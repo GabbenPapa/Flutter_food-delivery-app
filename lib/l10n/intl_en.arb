@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "cartTitle": "Cart",
+  "cartIsEmpty": "Cart is empty",
+  "clearCartDialogTitle": "Are you sure you want to clear the cart?",
+  "cancel": "Cancel",
+  "yes": "Yes",
+  "checkout": "Checkout",
+
+	"language" : "Language",
+	"settings": "Settings"
+}
