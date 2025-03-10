@@ -62,10 +62,6 @@ class _SettingsState extends State<Settings> {
     });
   }
 
-  Future<void> _resetIntro() async {
-    // await IntroProvider.resetIntroCompleted();
-  }
-
   Future<void> _resetLanguage() async {
     final languageProvider =
         Provider.of<LanguageProvider>(context, listen: false);
@@ -83,8 +79,8 @@ class _SettingsState extends State<Settings> {
   }
 
   Future<void> _resetTheme() async {
-    // final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-    // await themeProvider.resetSettings();
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    await themeProvider.resetSettings();
   }
 
   @override
@@ -257,7 +253,6 @@ class _SettingsState extends State<Settings> {
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () => {
-                      _resetIntro(),
                       _resetLanguage(),
                       _resetTheme(),
                       Navigator.of(context)
