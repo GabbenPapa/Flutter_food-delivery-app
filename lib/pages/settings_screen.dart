@@ -146,6 +146,10 @@ class _SettingsState extends State<Settings> {
                       onChanged: (newLang) {
                         if (newLang == null) return;
                         setSelectedLanguage(newLang);
+                        final languageProvider = Provider.of<LanguageProvider>(
+                            context,
+                            listen: false);
+                        languageProvider.setLocale(languageMap[newLang]!);
                       },
                     ),
                   ),
