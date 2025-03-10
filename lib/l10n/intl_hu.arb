@@ -30,12 +30,20 @@
 	"darkTheme": "Sötét téma",
 	"resetSettings": "Beállítások visszaállítása",
 
+	"yourLocation": "Az Ön helyzete",
+	"addLocation": "Helyszín hozzáadása",
+	"save": "Mentés",
+	"deliverNow": "Azonnali szállítás",
+
+	"deliveryFee" : "Szállítási díj",
+	"deliveryTime" : "Szállítási idő",
+
+	"home": "H O M E",
+	"settingsDrawer":"B E Á L L Í T Á S",
+	"logOut":"K I L É P É S",
 
 	"signOut": "Kijelentkezés",
-
 	"email": "Email",
 	"password": "Password",
 	"forgotPassword": "Forgot Password"
-
-
 }

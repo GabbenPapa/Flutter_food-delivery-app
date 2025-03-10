@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/services/auth/auth_services.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -11,8 +12,9 @@ class HomeDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return SizedBox(
-      width: 200,
+      width: 210,
       child: Drawer(
         backgroundColor: Theme.of(context).colorScheme.onSurface,
         child: Padding(
@@ -25,14 +27,14 @@ class HomeDrawer extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             HomeDrowerTile(
-              text: 'H O M E',
+              text: localization.home,
               icon: Icons.home,
               onTap: () {
                 Navigator.of(context).pushNamed('/home_screen');
               },
             ),
             HomeDrowerTile(
-              text: 'S E T T I N G S',
+              text: localization.settingsDrawer,
               icon: Icons.settings,
               onTap: () {
                 Navigator.of(context).pushNamed('/settings');
@@ -40,7 +42,7 @@ class HomeDrawer extends StatelessWidget {
             ),
             Spacer(),
             HomeDrowerTile(
-              text: 'L O G O U T',
+              text: localization.logOut,
               icon: Icons.logout,
               onTap: () {
                 logout();

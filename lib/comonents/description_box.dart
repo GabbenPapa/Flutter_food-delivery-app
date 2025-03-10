@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 
 class HomeDicriptionBox extends StatelessWidget {
   const HomeDicriptionBox({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Theme.of(context).colorScheme.primary),
@@ -25,7 +27,7 @@ class HomeDicriptionBox extends StatelessWidget {
                 ),
               ),
               Text(
-                'Delivery Fee',
+                localization.deliveryFee,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 12,
@@ -43,7 +45,7 @@ class HomeDicriptionBox extends StatelessWidget {
                 ),
               ),
               Text(
-                'Delivery Time',
+                localization.deliveryTime,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 12,

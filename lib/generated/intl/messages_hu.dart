@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addLocation": MessageLookupByLibrary.simpleMessage("Helyszín hozzáadása"),
     "addOns": MessageLookupByLibrary.simpleMessage("Kiegészítők"),
     "addToCart": MessageLookupByLibrary.simpleMessage("Kosárba"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
@@ -38,14 +39,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nincs felhasználód?",
     ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Sötét téma"),
+    "deliverNow": MessageLookupByLibrary.simpleMessage("Azonnali szállítás"),
+    "deliveryFee": MessageLookupByLibrary.simpleMessage("Szállítási díj"),
     "deliveryProgress": MessageLookupByLibrary.simpleMessage(
       "Szállítás állapota",
     ),
+    "deliveryTime": MessageLookupByLibrary.simpleMessage("Szállítási idő"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "error": MessageLookupByLibrary.simpleMessage("Hiba"),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
+    "home": MessageLookupByLibrary.simpleMessage("H O M E"),
     "language": MessageLookupByLibrary.simpleMessage("Nyelv"),
+    "logOut": MessageLookupByLibrary.simpleMessage("K I L É P É S"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordsMatch": MessageLookupByLibrary.simpleMessage(
       "A jelszavak nem egyeznek",
@@ -54,13 +60,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetSettings": MessageLookupByLibrary.simpleMessage(
       "Beállítások visszaállítása",
     ),
+    "save": MessageLookupByLibrary.simpleMessage("Mentés"),
     "settings": MessageLookupByLibrary.simpleMessage("Beállítások"),
+    "settingsDrawer": MessageLookupByLibrary.simpleMessage("B E Á L L Í T Á S"),
     "signIn": MessageLookupByLibrary.simpleMessage("Bejelentkezés"),
-    "signOut": MessageLookupByLibrary.simpleMessage("Kijelentkezés"),
     "singUp": MessageLookupByLibrary.simpleMessage("Regisztráció"),
     "useSystemTheme": MessageLookupByLibrary.simpleMessage(
       "Rendszer témájának használata",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Igen"),
+    "yourLocation": MessageLookupByLibrary.simpleMessage("Az Ön helyzete"),
   };
 }

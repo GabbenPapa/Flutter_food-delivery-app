@@ -210,9 +210,74 @@ class AppLocalizations {
     );
   }
 
-  /// `Sign Out`
-  String get signOut {
-    return Intl.message('Sign Out', name: 'signOut', desc: '', args: []);
+  /// `Your Location`
+  String get yourLocation {
+    return Intl.message(
+      'Your Location',
+      name: 'yourLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a location`
+  String get addLocation {
+    return Intl.message(
+      'Add a location',
+      name: 'addLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Deliver now`
+  String get deliverNow {
+    return Intl.message('Deliver now', name: 'deliverNow', desc: '', args: []);
+  }
+
+  /// `Delivery Fee`
+  String get deliveryFee {
+    return Intl.message(
+      'Delivery Fee',
+      name: 'deliveryFee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Time`
+  String get deliveryTime {
+    return Intl.message(
+      'Delivery Time',
+      name: 'deliveryTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `H O M E`
+  String get home {
+    return Intl.message('H O M E', name: 'home', desc: '', args: []);
+  }
+
+  /// `S E T T I N G S`
+  String get settingsDrawer {
+    return Intl.message(
+      'S E T T I N G S',
+      name: 'settingsDrawer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `L O G O U T`
+  String get logOut {
+    return Intl.message('L O G O U T', name: 'logOut', desc: '', args: []);
   }
 
   /// `Email`

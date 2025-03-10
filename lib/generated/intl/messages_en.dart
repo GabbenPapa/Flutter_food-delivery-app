@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addLocation": MessageLookupByLibrary.simpleMessage("Add a location"),
     "addOns": MessageLookupByLibrary.simpleMessage("Add-ons"),
     "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
@@ -38,25 +39,32 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account?",
     ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
+    "deliverNow": MessageLookupByLibrary.simpleMessage("Deliver now"),
+    "deliveryFee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
     "deliveryProgress": MessageLookupByLibrary.simpleMessage(
       "Delivery Progress",
     ),
+    "deliveryTime": MessageLookupByLibrary.simpleMessage("Delivery Time"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
+    "home": MessageLookupByLibrary.simpleMessage("H O M E"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "logOut": MessageLookupByLibrary.simpleMessage("L O G O U T"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordsMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resetSettings": MessageLookupByLibrary.simpleMessage("Reset Settings"),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settingsDrawer": MessageLookupByLibrary.simpleMessage("S E T T I N G S"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
-    "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "singUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "useSystemTheme": MessageLookupByLibrary.simpleMessage("Use System Theme"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),
   };
 }
