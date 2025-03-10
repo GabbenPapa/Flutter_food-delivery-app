@@ -8,5 +8,34 @@
   "checkout": "Pénztár",
 
 	"language" : "Nyelv",
-	"settings": "Beállítások"
+	"settings": "Beállítások",
+
+	"deliveryProgress": "Szállítás állapota",
+
+	"addOns": "Kiegészítők",
+	"addToCart": "Kosárba",
+
+	"error": "Hiba",
+
+	"foodDelivery" : "Ételrendelés",
+	"signIn": "Bejelentkezés",
+	"createAccount": "Nincs felhasználód?",
+	
+	"singUp": "Regisztráció",
+	"passwordsMatch": "A jelszavak nem egyeznek",
+	"register": "Regisztrálok",
+	"alreadyHaveAccount": "Már van felhasználó?",
+
+	"useSystemTheme" :"Rendszer témájának használata",
+	"darkTheme": "Sötét téma",
+	"resetSettings": "Beállítások visszaállítása",
+
+
+	"signOut": "Kijelentkezés",
+
+	"email": "Email",
+	"password": "Password",
+	"forgotPassword": "Forgot Password"
+
+
 }

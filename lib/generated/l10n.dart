@@ -104,6 +104,136 @@ class AppLocalizations {
   String get settings {
     return Intl.message('Settings', name: 'settings', desc: '', args: []);
   }
+
+  /// `Delivery Progress`
+  String get deliveryProgress {
+    return Intl.message(
+      'Delivery Progress',
+      name: 'deliveryProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add-ons`
+  String get addOns {
+    return Intl.message('Add-ons', name: 'addOns', desc: '', args: []);
+  }
+
+  /// `Add to Cart`
+  String get addToCart {
+    return Intl.message('Add to Cart', name: 'addToCart', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `Ételrendelés`
+  String get foodDelivery {
+    return Intl.message(
+      'Ételrendelés',
+      name: 'foodDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
+  }
+
+  /// `Don't have an account?`
+  String get createAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get singUp {
+    return Intl.message('Sign Up', name: 'singUp', desc: '', args: []);
+  }
+
+  /// `Passwords do not match`
+  String get passwordsMatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message('Register', name: 'register', desc: '', args: []);
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use System Theme`
+  String get useSystemTheme {
+    return Intl.message(
+      'Use System Theme',
+      name: 'useSystemTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Theme`
+  String get darkTheme {
+    return Intl.message('Dark Theme', name: 'darkTheme', desc: '', args: []);
+  }
+
+  /// `Reset Settings`
+  String get resetSettings {
+    return Intl.message(
+      'Reset Settings',
+      name: 'resetSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message('Sign Out', name: 'signOut', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Forgot Password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

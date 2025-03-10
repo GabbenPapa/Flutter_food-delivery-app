@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addOns": MessageLookupByLibrary.simpleMessage("Kiegészítők"),
+    "addToCart": MessageLookupByLibrary.simpleMessage("Kosárba"),
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Már van felhasználó?",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("Mégse"),
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("A kosár üres"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Kosár"),
@@ -29,8 +34,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "clearCartDialogTitle": MessageLookupByLibrary.simpleMessage(
       "Biztosan törölni szeretné a kosarat?",
     ),
+    "createAccount": MessageLookupByLibrary.simpleMessage(
+      "Nincs felhasználód?",
+    ),
+    "darkTheme": MessageLookupByLibrary.simpleMessage("Sötét téma"),
+    "deliveryProgress": MessageLookupByLibrary.simpleMessage(
+      "Szállítás állapota",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "error": MessageLookupByLibrary.simpleMessage("Hiba"),
+    "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "language": MessageLookupByLibrary.simpleMessage("Nyelv"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordsMatch": MessageLookupByLibrary.simpleMessage(
+      "A jelszavak nem egyeznek",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("Regisztrálok"),
+    "resetSettings": MessageLookupByLibrary.simpleMessage(
+      "Beállítások visszaállítása",
+    ),
     "settings": MessageLookupByLibrary.simpleMessage("Beállítások"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Bejelentkezés"),
+    "signOut": MessageLookupByLibrary.simpleMessage("Kijelentkezés"),
+    "singUp": MessageLookupByLibrary.simpleMessage("Regisztráció"),
+    "useSystemTheme": MessageLookupByLibrary.simpleMessage(
+      "Rendszer témájának használata",
+    ),
     "yes": MessageLookupByLibrary.simpleMessage("Igen"),
   };
 }

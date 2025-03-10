@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import '../models/food.dart';
@@ -38,6 +39,8 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
   }
 
   Widget _buildAddOnsSection(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     if (widget.food.availableAddons.isEmpty) return const SizedBox.shrink();
 
     return Theme(
@@ -45,7 +48,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
       child: ExpansionTile(
         initiallyExpanded: true,
         title: Text(
-          'Add-ons',
+          localizations.addOns,
           style: TextStyle(
             fontSize: 20,
             color: Theme.of(context).colorScheme.inverseSurface,
@@ -84,6 +87,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
     return Stack(
       children: [
         Scaffold(
@@ -172,8 +176,8 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                           ),
                           onPressed: () =>
                               addToCart(widget.food, selectedAddons),
-                          child: const Text(
-                            "Add to Cart",
+                          child: Text(
+                            localizations.addToCart,
                             style: TextStyle(fontSize: 16),
                           ),
                         ),

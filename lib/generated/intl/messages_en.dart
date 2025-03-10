@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addOns": MessageLookupByLibrary.simpleMessage("Add-ons"),
+    "addToCart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Cart"),
@@ -29,8 +34,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "clearCartDialogTitle": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to clear the cart?",
     ),
+    "createAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
+    "deliveryProgress": MessageLookupByLibrary.simpleMessage(
+      "Delivery Progress",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordsMatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "resetSettings": MessageLookupByLibrary.simpleMessage("Reset Settings"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+    "singUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "useSystemTheme": MessageLookupByLibrary.simpleMessage("Use System Theme"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

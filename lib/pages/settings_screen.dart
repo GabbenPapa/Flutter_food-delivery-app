@@ -91,19 +91,13 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context);
 
-    // final themeProvider = Provider.of<ThemeProvider>(context);
-    // final theme = Theme.of(context);
-    // final customTheme = theme.extension<CustomThemeExtension>();
-
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
-      // appBar: AppBar(title: Text(AppLocalizations.of(context)!.settings)),
       appBar: AppBar(
         title: Text(localizations.settings),
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-
       body: Stack(
         children: [
           Padding(
@@ -158,9 +152,8 @@ class _SettingsState extends State<Settings> {
 
                 // Use System Theme Toggle
                 SwitchListTile(
-                  // title: Text(AppLocalizations.of(context)!.useSystemTheme),
                   title: Text(
-                    'Use System Theme',
+                    localizations.useSystemTheme,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
@@ -170,7 +163,6 @@ class _SettingsState extends State<Settings> {
                     await Provider.of<ThemeProvider>(context, listen: false)
                         .setUseSystemTheme(value);
                   },
-
                   activeColor: Theme.of(context).colorScheme.primary,
                   activeTrackColor: Theme.of(context).colorScheme.secondary,
                   inactiveTrackColor: Theme.of(context).colorScheme.secondary,
@@ -179,7 +171,7 @@ class _SettingsState extends State<Settings> {
                 // Dark Theme Toggle
                 SwitchListTile(
                   title: Text(
-                    'Dark Theme',
+                    localizations.darkTheme,
                     style: TextStyle(
                       color: Provider.of<ThemeProvider>(context).useSystemTheme
                           ? Theme.of(context).disabledColor
@@ -275,7 +267,7 @@ class _SettingsState extends State<Settings> {
                       backgroundColor: Colors.red,
                     ),
                     child: Text(
-                      'Factory Reset',
+                      localizations.resetSettings,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 25,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/pages/home_screen.dart';
 
 import '../comonents/textfield.dart';
@@ -32,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text("Error"),
+          title: Text(AppLocalizations.of(context).error),
           content: Text(e.toString()),
         ),
       );
@@ -43,6 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: Padding(
@@ -58,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Food Delivery',
+                localizations.foodDelivery,
                 style: TextStyle(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.inversePrimary),
@@ -95,8 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     login();
                   },
-                  child: const Text(
-                    "Sign In",
+                  child: Text(
+                    localizations.signIn,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -107,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    localizations.createAccount,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
@@ -120,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.of(context).pushNamed(RegisterScreen.routeName);
                     },
                     child: Text(
-                      "Sign Up",
+                      localizations.singUp,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontWeight: FontWeight.bold,

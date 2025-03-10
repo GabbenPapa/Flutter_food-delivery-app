@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 
 import '../comonents/textfield.dart';
 import '../services/auth/auth_services.dart';
@@ -32,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text("Error"),
+            title: Text(AppLocalizations.of(context).error),
             content: Text(e.toString()),
           ),
         );
@@ -42,12 +43,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(
-            "Error",
+            AppLocalizations.of(context).error,
             style:
                 TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
           ),
           content: Text(
-            "Passwords do not match",
+            AppLocalizations.of(context).passwordsMatch,
             style:
                 TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
           ),
@@ -58,6 +59,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: Padding(
@@ -73,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Food Delivery',
+                localizations.foodDelivery,
                 style: TextStyle(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.inversePrimary),
@@ -84,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Email
               LoginTextField(
                 controller: widget.emailController,
-                hintText: 'Email',
+                hintText: localizations.email,
                 obscureText: false,
               ),
               const SizedBox(height: 20),
@@ -92,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Password
               LoginTextField(
                 controller: widget.passwordController,
-                hintText: 'Password',
+                hintText: localizations.password,
                 obscureText: true,
               ),
               const SizedBox(height: 20),
@@ -100,7 +103,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Password Confirm
               LoginTextField(
                 controller: widget.passwordConfirmController,
-                hintText: 'Password',
+                hintText: localizations.password,
                 obscureText: true,
               ),
 
@@ -119,8 +122,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPressed: () {
                     register();
                   },
-                  child: const Text(
-                    "Register",
+                  child: Text(
+                    localizations.register,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -131,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account?",
+                    localizations.alreadyHaveAccount,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
@@ -144,7 +147,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.of(context).pushNamed(LoginScreen.routeName);
                     },
                     child: Text(
-                      "Sign In",
+                      localizations.signIn,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -27,12 +28,14 @@ class _DeliveryProgressScreenState extends State<DeliveryProgressScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Delivery Progress'),
+        title: Text(localizations.deliveryProgress),
       ),
       body: Column(
         children: [Receipt()],

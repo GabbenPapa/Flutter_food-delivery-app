@@ -8,5 +8,34 @@
   "checkout": "Checkout",
 
 	"language" : "Language",
-	"settings": "Settings"
+	"settings": "Settings",
+
+	"deliveryProgress": "Delivery Progress",
+
+	"addOns": "Add-ons",
+	"addToCart": "Add to Cart",
+
+	"error": "Error",
+
+	"foodDelivery" : "Ételrendelés",
+	"signIn":	"Sign In",
+	"createAccount":	"Don't have an account?",
+
+	"singUp":	"Sign Up",
+	"passwordsMatch": "Passwords do not match",
+	"register": "Register",
+	"alreadyHaveAccount": "Already have an account?",
+
+	"useSystemTheme": "Use System Theme",
+	"darkTheme": "Dark Theme",
+	"resetSettings": "Reset Settings",
+
+
+
+	"signOut":	"Sign Out",
+	"email":	"Email",
+	"password":	"Password",
+	"forgotPassword":	"Forgot Password"
+
+
 }
