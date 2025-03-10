@@ -175,6 +175,26 @@ class AppLocalizations {
     return Intl.message('Register', name: 'register', desc: '', args: []);
   }
 
+  /// `Successful`
+  String get success {
+    return Intl.message('Successful', name: 'success', desc: '', args: []);
+  }
+
+  /// `Registration Successful`
+  String get registerSuccess {
+    return Intl.message(
+      'Registration Successful',
+      name: 'registerSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
   /// `Already have an account?`
   String get alreadyHaveAccount {
     return Intl.message(

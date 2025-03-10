@@ -24,6 +24,9 @@
 	"singUp": "Regisztráció",
 	"passwordsMatch": "A jelszavak nem egyeznek",
 	"register": "Regisztrálok",
+	"success": "Sikeres",
+	"registerSuccess": "Sikeres regisztráció",
+	"ok": "OK",
 	"alreadyHaveAccount": "Már van felhasználó?",
 
 	"useSystemTheme" :"Rendszer témájának használata",

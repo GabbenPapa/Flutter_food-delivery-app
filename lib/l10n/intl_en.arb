@@ -24,6 +24,9 @@
 	"singUp":	"Sign Up",
 	"passwordsMatch": "Passwords do not match",
 	"register": "Register",
+	"success": "Successful",
+	"registerSuccess": "Registration Successful",
+	"ok": "OK",
 	"alreadyHaveAccount": "Already have an account?",
 
 	"useSystemTheme": "Use System Theme",

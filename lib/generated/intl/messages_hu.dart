@@ -52,11 +52,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
     "language": MessageLookupByLibrary.simpleMessage("Nyelv"),
     "logOut": MessageLookupByLibrary.simpleMessage("K I L É P É S"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordsMatch": MessageLookupByLibrary.simpleMessage(
       "A jelszavak nem egyeznek",
     ),
     "register": MessageLookupByLibrary.simpleMessage("Regisztrálok"),
+    "registerSuccess": MessageLookupByLibrary.simpleMessage(
+      "Sikeres regisztráció",
+    ),
     "resetSettings": MessageLookupByLibrary.simpleMessage(
       "Beállítások visszaállítása",
     ),
@@ -65,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsDrawer": MessageLookupByLibrary.simpleMessage("B E Á L L Í T Á S"),
     "signIn": MessageLookupByLibrary.simpleMessage("Bejelentkezés"),
     "singUp": MessageLookupByLibrary.simpleMessage("Regisztráció"),
+    "success": MessageLookupByLibrary.simpleMessage("Sikeres"),
     "useSystemTheme": MessageLookupByLibrary.simpleMessage(
       "Rendszer témájának használata",
     ),

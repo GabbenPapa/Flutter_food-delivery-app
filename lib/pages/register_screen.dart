@@ -121,6 +121,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   onPressed: () {
                     register();
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text(AppLocalizations.of(context).success),
+                        content:
+                            Text(AppLocalizations.of(context).registerSuccess),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.of(context)
+                                  .pushNamed(LoginScreen.routeName);
+                            },
+                            child: Text(AppLocalizations.of(context).ok),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                   child: Text(
                     localizations.register,
