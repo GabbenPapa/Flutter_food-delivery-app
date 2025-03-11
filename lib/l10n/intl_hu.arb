@@ -57,6 +57,10 @@
 	"confirm": "Megerősítés",
 	"cardNum" : "Kartya szám: {param}",
 	"expiryDate": "Lejérés időpont: {param}",
-	"cardHolderName": "Kartya tulajdonos: {param}"
+	"cardHolderName": "Kartya tulajdonos: {param}",
 
+	"cardNumber": "Kártyaszám",
+	"expiryDate2":  "Lejérés dátum",
+	"cardHolderName2": "Kártyatulajdonos",
+	"cvv": "CVV"
 }

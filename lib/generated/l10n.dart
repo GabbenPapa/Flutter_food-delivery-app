@@ -389,6 +389,31 @@ class AppLocalizations {
       args: [param],
     );
   }
+
+  /// `Card Number`
+  String get cardNumber {
+    return Intl.message('Card Number', name: 'cardNumber', desc: '', args: []);
+  }
+
+  /// `Expiry Date`
+  String get expiryDate2 {
+    return Intl.message('Expiry Date', name: 'expiryDate2', desc: '', args: []);
+  }
+
+  /// `Card Holder Name`
+  String get cardHolderName2 {
+    return Intl.message(
+      'Card Holder Name',
+      name: 'cardHolderName2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CVV`
+  String get cvv {
+    return Intl.message('CVV', name: 'cvv', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

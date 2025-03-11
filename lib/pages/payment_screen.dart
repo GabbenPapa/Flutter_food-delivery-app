@@ -167,12 +167,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   Widget _cardNumberField() {
+    final localization = AppLocalizations.of(context);
     return TextFormField(
       style: TextStyle(
         color: Theme.of(context).colorScheme.inversePrimary,
       ),
       decoration: InputDecoration(
-        labelText: 'Card Number',
+        labelText: localization.cardNumber,
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.inversePrimary,
         ),
@@ -202,12 +203,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   Widget _expiryDateField() {
+    final localization = AppLocalizations.of(context);
     return TextFormField(
       style: TextStyle(
         color: Theme.of(context).colorScheme.inversePrimary,
       ),
       decoration: InputDecoration(
-        labelText: 'Expiry Date',
+        labelText: localization.expiryDate2,
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.inversePrimary,
         ),
@@ -247,12 +249,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   Widget _cardHolderNameField() {
+    final localization = AppLocalizations.of(context);
     return TextFormField(
       style: TextStyle(
         color: Theme.of(context).colorScheme.inversePrimary,
       ),
       decoration: InputDecoration(
-        labelText: 'Card Holder Name',
+        labelText: localization.cardHolderName2,
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.inversePrimary,
         ),
@@ -269,12 +272,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   Widget _cvvField() {
+    final localization = AppLocalizations.of(context);
     return TextFormField(
       style: TextStyle(
         color: Theme.of(context).colorScheme.inversePrimary,
       ),
       decoration: InputDecoration(
-        labelText: 'CVV',
+        labelText: localization.cvv,
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.inversePrimary,
         ),

@@ -57,8 +57,10 @@
 	"confirm": "Confirm",
 	"cardNum" : "Card Number: {param}",
 	"expiryDate": "Expiry Date: {param}",
-	"cardHolderName": "Card Holder Name: {param}"
+	"cardHolderName": "Card Holder Name: {param}",
 
-
-
+	"cardNumber": "Card Number",
+	"expiryDate2":  "Expiry Date",
+	"cardHolderName2": "Card Holder Name",
+	"cvv": "CVV"
 }
