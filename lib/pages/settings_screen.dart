@@ -252,11 +252,13 @@ class _SettingsState extends State<Settings> {
                   width: double.infinity,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () => {
-                      _resetLanguage(),
-                      _resetTheme(),
-                      Navigator.of(context)
-                          .pushReplacementNamed(HomeScreen.routeName)
+                    onPressed: () async {
+                      final navigator = Navigator.of(context);
+                      await _resetLanguage();
+                      await _resetTheme();
+
+                      if (!mounted) return;
+                      navigator.pushReplacementNamed(HomeScreen.routeName);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
