@@ -50,5 +50,13 @@
 	"forgotPassword": "Forgot Password",
 
 	"thankYouForYourOrder": "Köszönjük a rendelését",
-	"estimatedDeliveryTime" : "Várható szállítási idő: 30 perc"
+	"estimatedDeliveryTime" : "Várható szállítási idő: 30 perc",
+
+	"payNow": "Fizetés",
+	"confirmPayment": "Fizetés megerősítése",
+	"confirm": "Megerősítés",
+	"cardNum" : "Kartya szám: {param}",
+	"expiryDate": "Lejérés időpont: {param}",
+	"cardHolderName": "Kartya tulajdonos: {param}"
+
 }

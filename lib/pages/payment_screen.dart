@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'
     show FilteringTextInputFormatter, LengthLimitingTextInputFormatter;
 import 'package:food_delivery/formatter/formatter.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:u_credit_card/u_credit_card.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(
-            "Confirm Payment",
+            AppLocalizations.of(context).confirmPayment,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.inversePrimary,
@@ -36,19 +37,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
             child: ListBody(
               children: [
                 Text(
-                  "Card Number: $cardNumber",
+                  AppLocalizations.of(context).cardNum(cardNumber),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
                 Text(
-                  "Expiry Date: $expiryDate",
+                  AppLocalizations.of(context).expiryDate(expiryDate),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
                 Text(
-                  "Card Holder Name: $cardHolderName",
+                  AppLocalizations.of(context).cardHolderName(cardHolderName),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -60,7 +61,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text(
-                "Cancel",
+                AppLocalizations.of(context).cancel,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
@@ -72,7 +73,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 Navigator.of(context).pushNamed('/delivery_progress');
               },
               child: Text(
-                "Confirm",
+                AppLocalizations.of(context).confirm,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
@@ -86,13 +87,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).colorScheme.onSurface,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Checkout'),
+        title: Text(
+          localization.checkout,
+        ),
       ),
       body: SingleChildScrollView(
         // keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
@@ -147,7 +151,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   onPressed: startPaymentAction,
                   child: Text(
-                    "Pay Now",
+                    localization.payNow,
                     style: TextStyle(
                       fontSize: 16,
                       color: Theme.of(context).colorScheme.inversePrimary,

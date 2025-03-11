@@ -20,6 +20,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(param) => "Card Holder Name: ${param}";
+
+  static String m1(param) => "Card Number: ${param}";
+
+  static String m2(param) => "Expiry Date: ${param}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addLocation": MessageLookupByLibrary.simpleMessage("Add a location"),
@@ -29,12 +35,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cardHolderName": m0,
+    "cardNum": m1,
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Cart"),
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "clearCartDialogTitle": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to clear the cart?",
     ),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirmPayment": MessageLookupByLibrary.simpleMessage("Confirm Payment"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
@@ -50,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "estimatedDeliveryTime": MessageLookupByLibrary.simpleMessage(
       "Estimated Delivery Time: 30 minutes",
     ),
+    "expiryDate": m2,
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
@@ -60,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
+    "payNow": MessageLookupByLibrary.simpleMessage("Pay Now"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "registerSuccess": MessageLookupByLibrary.simpleMessage(
       "Registration Successful",

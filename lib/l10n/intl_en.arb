@@ -50,8 +50,15 @@
 	"forgotPassword": "Forgot Password",
 
 	"thankYouForYourOrder": "Thank you for your order",
-	"estimatedDeliveryTime" : "Estimated Delivery Time: 30 minutes"
+	"estimatedDeliveryTime" : "Estimated Delivery Time: 30 minutes",
 
-	
+	"payNow": "Pay Now",
+	"confirmPayment": "Confirm Payment",
+	"confirm": "Confirm",
+	"cardNum" : "Card Number: {param}",
+	"expiryDate": "Expiry Date: {param}",
+	"cardHolderName": "Card Holder Name: {param}"
+
+
 
 }

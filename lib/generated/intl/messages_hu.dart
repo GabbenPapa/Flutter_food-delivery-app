@@ -20,6 +20,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'hu';
 
+  static String m0(param) => "Kartya tulajdonos: ${param}";
+
+  static String m1(param) => "Kartya szám: ${param}";
+
+  static String m2(param) => "Lejérés időpont: ${param}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addLocation": MessageLookupByLibrary.simpleMessage("Helyszín hozzáadása"),
@@ -29,11 +35,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Már van felhasználó?",
     ),
     "cancel": MessageLookupByLibrary.simpleMessage("Mégse"),
+    "cardHolderName": m0,
+    "cardNum": m1,
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("A kosár üres"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Kosár"),
     "checkout": MessageLookupByLibrary.simpleMessage("Pénztár"),
     "clearCartDialogTitle": MessageLookupByLibrary.simpleMessage(
       "Biztosan törölni szeretné a kosarat?",
+    ),
+    "confirm": MessageLookupByLibrary.simpleMessage("Megerősítés"),
+    "confirmPayment": MessageLookupByLibrary.simpleMessage(
+      "Fizetés megerősítése",
     ),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "Nincs felhasználód?",
@@ -50,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "estimatedDeliveryTime": MessageLookupByLibrary.simpleMessage(
       "Várható szállítási idő: 30 perc",
     ),
+    "expiryDate": m2,
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
@@ -60,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsMatch": MessageLookupByLibrary.simpleMessage(
       "A jelszavak nem egyeznek",
     ),
+    "payNow": MessageLookupByLibrary.simpleMessage("Fizetés"),
     "register": MessageLookupByLibrary.simpleMessage("Regisztrálok"),
     "registerSuccess": MessageLookupByLibrary.simpleMessage(
       "Sikeres regisztráció",

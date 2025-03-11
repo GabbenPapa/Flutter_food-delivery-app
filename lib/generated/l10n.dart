@@ -339,6 +339,56 @@ class AppLocalizations {
       args: [],
     );
   }
+
+  /// `Pay Now`
+  String get payNow {
+    return Intl.message('Pay Now', name: 'payNow', desc: '', args: []);
+  }
+
+  /// `Confirm Payment`
+  String get confirmPayment {
+    return Intl.message(
+      'Confirm Payment',
+      name: 'confirmPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `Card Number: {param}`
+  String cardNum(Object param) {
+    return Intl.message(
+      'Card Number: $param',
+      name: 'cardNum',
+      desc: '',
+      args: [param],
+    );
+  }
+
+  /// `Expiry Date: {param}`
+  String expiryDate(Object param) {
+    return Intl.message(
+      'Expiry Date: $param',
+      name: 'expiryDate',
+      desc: '',
+      args: [param],
+    );
+  }
+
+  /// `Card Holder Name: {param}`
+  String cardHolderName(Object param) {
+    return Intl.message(
+      'Card Holder Name: $param',
+      name: 'cardHolderName',
+      desc: '',
+      args: [param],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
