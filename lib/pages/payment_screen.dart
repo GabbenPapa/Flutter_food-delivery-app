@@ -112,8 +112,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
             children: [
               CreditCardUi(
                 width: MediaQuery.of(context).size.width * 0.9,
-                cardHolderFullName:
-                    cardHolderName.isEmpty ? 'Your Name' : cardHolderName,
+                cardHolderFullName: cardHolderName.isEmpty
+                    ? AppLocalizations.of(context).yourName
+                    : cardHolderName,
                 cardNumber:
                     cardNumber.isEmpty ? 'XXXX XXXX XXXX XXXX' : cardNumber,
                 validFrom: expiryDate.isEmpty ? 'MM/YY' : expiryDate,
@@ -188,14 +189,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
       onChanged: (value) => setState(() => cardNumber = value),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter card number';
+          return AppLocalizations.of(context).cardNumberEmpty;
         }
         final cleanedValue = value.replaceAll(' ', '');
         if (cleanedValue.length != 16) {
-          return 'Card number must be exactly 16 digits';
+          return AppLocalizations.of(context).cardNumberInvalid;
         }
         if (!RegExp(r'^\d{16}$').hasMatch(cleanedValue)) {
-          return 'Invalid card number';
+          return AppLocalizations.of(context).invalidCardNumber;
         }
         return null;
       },
@@ -225,23 +226,23 @@ class _PaymentScreenState extends State<PaymentScreen> {
       onChanged: (value) => setState(() => expiryDate = value),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter expiry date';
+          return AppLocalizations.of(context).expiryDateEmpty;
         }
         if (!RegExp(r'^\d{2}/\d{2}$').hasMatch(value)) {
-          return 'Invalid format (MM/YY)';
+          return AppLocalizations.of(context).expiryDateInvalidFormat;
         }
 
         final month = int.tryParse(value.substring(0, 2)) ?? 0;
         final year = int.tryParse(value.substring(3, 5)) ?? 0;
         if (month < 1 || month > 12) {
-          return 'Invalid month (01-12)';
+          return AppLocalizations.of(context).expiryDateInvalidMonth;
         }
         final now = DateTime.now();
         final currentYear = now.year % 100;
         final currentMonth = now.month;
         if (year < currentYear ||
             (year == currentYear && month < currentMonth)) {
-          return 'Card expired';
+          return AppLocalizations.of(context).expiryDateCardExpired;
         }
         return null;
       },
@@ -264,7 +265,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       onChanged: (value) => setState(() => cardHolderName = value),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter card holder name';
+          return AppLocalizations.of(context).cardHolderNameEmpty;
         }
         return null;
       },
@@ -293,7 +294,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       ],
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter CVV';
+          return AppLocalizations.of(context).cvvEmpty;
         }
         return null;
       },

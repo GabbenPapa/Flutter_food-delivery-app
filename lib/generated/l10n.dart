@@ -414,6 +414,101 @@ class AppLocalizations {
   String get cvv {
     return Intl.message('CVV', name: 'cvv', desc: '', args: []);
   }
+
+  /// `Your Name`
+  String get yourName {
+    return Intl.message('Your Name', name: 'yourName', desc: '', args: []);
+  }
+
+  /// `Please enter card number`
+  String get cardNumberEmpty {
+    return Intl.message(
+      'Please enter card number',
+      name: 'cardNumberEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card number must be exactly 16 digits`
+  String get cardNumberInvalid {
+    return Intl.message(
+      'Card number must be exactly 16 digits',
+      name: 'cardNumberInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid card number`
+  String get invalidCardNumber {
+    return Intl.message(
+      'Invalid card number',
+      name: 'invalidCardNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter expiry date`
+  String get expiryDateEmpty {
+    return Intl.message(
+      'Please enter expiry date',
+      name: 'expiryDateEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid format (MM/YY)`
+  String get expiryDateInvalidFormat {
+    return Intl.message(
+      'Invalid format (MM/YY)',
+      name: 'expiryDateInvalidFormat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid month (01-12)`
+  String get expiryDateInvalidMonth {
+    return Intl.message(
+      'Invalid month (01-12)',
+      name: 'expiryDateInvalidMonth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card expired`
+  String get expiryDateCardExpired {
+    return Intl.message(
+      'Card expired',
+      name: 'expiryDateCardExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter card holder name`
+  String get cardHolderNameEmpty {
+    return Intl.message(
+      'Please enter card holder name',
+      name: 'cardHolderNameEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter CVV`
+  String get cvvEmpty {
+    return Intl.message(
+      'Please enter CVV',
+      name: 'cvvEmpty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

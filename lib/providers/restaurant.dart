@@ -204,17 +204,17 @@ class Restaurant extends ChangeNotifier {
         //Todo Error handling
         if (response.statusCode == 200 || response.statusCode == 201) {
           if (kDebugMode) {
-            print("${item['name']} sikeresen feltöltve!");
+            print("${item['name']} Push successful!");
           }
         } else {
           if (kDebugMode) {
-            print("Hiba történt (${item['name']}): ${response.body}");
+            print("Error (${item['name']}): ${response.body}");
           }
         }
       }
     } catch (error) {
       if (kDebugMode) {
-        print("Hálózati hiba: $error");
+        print("Network error: $error");
       }
     }
   }

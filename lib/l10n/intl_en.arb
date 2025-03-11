@@ -62,5 +62,15 @@
 	"cardNumber": "Card Number",
 	"expiryDate2":  "Expiry Date",
 	"cardHolderName2": "Card Holder Name",
-	"cvv": "CVV"
+	"cvv": "CVV",
+	"yourName": "Your Name",
+	"cardNumberEmpty": "Please enter card number",
+	"cardNumberInvalid": "Card number must be exactly 16 digits",
+	"invalidCardNumber": "Invalid card number",
+	"expiryDateEmpty": "Please enter expiry date",
+	"expiryDateInvalidFormat": "Invalid format (MM/YY)",
+	"expiryDateInvalidMonth": "Invalid month (01-12)",
+	"expiryDateCardExpired": "Card expired",
+	"cardHolderNameEmpty": "Please enter card holder name",
+	"cvvEmpty": "Please enter CVV"
 }

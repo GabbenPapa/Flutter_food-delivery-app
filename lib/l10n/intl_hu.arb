@@ -62,5 +62,15 @@
 	"cardNumber": "Kártyaszám",
 	"expiryDate2":  "Lejérés dátum",
 	"cardHolderName2": "Kártyatulajdonos",
-	"cvv": "CVV"
+	"cvv": "CVV",
+	"yourName": "Az Ön neve",
+	"cardNumberEmpty": "Kérjük, adja meg a kártyaszámot",
+	"cardNumberInvalid": "A kártyaszámnak pontosan 16 számból kell állnia",
+	"invalidCardNumber": "Érvénytelen kártyaszám",
+	"expiryDateEmpty": "Kérjük, adja meg a lejárati dátumot",
+	"expiryDateInvalidFormat": "Érvénytelen formátum (HH/ÉÉ)",
+	"expiryDateInvalidMonth": "Érvénytelen hónap (01-12)",
+	"expiryDateCardExpired": "Lejárt kártya",
+	"cardHolderNameEmpty": "Kérjük, adja meg a kártyatulajdonos nevét",
+	"cvvEmpty": "Kérjük, adja meg a CVV-t"
 }

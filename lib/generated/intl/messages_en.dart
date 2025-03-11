@@ -37,8 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "cardHolderName": m0,
     "cardHolderName2": MessageLookupByLibrary.simpleMessage("Card Holder Name"),
+    "cardHolderNameEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter card holder name",
+    ),
     "cardNum": m1,
     "cardNumber": MessageLookupByLibrary.simpleMessage("Card Number"),
+    "cardNumberEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter card number",
+    ),
+    "cardNumberInvalid": MessageLookupByLibrary.simpleMessage(
+      "Card number must be exactly 16 digits",
+    ),
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Cart"),
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
@@ -51,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account?",
     ),
     "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
+    "cvvEmpty": MessageLookupByLibrary.simpleMessage("Please enter CVV"),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
     "deliverNow": MessageLookupByLibrary.simpleMessage("Deliver now"),
     "deliveryFee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
@@ -65,9 +75,24 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expiryDate": m2,
     "expiryDate2": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+    "expiryDateCardExpired": MessageLookupByLibrary.simpleMessage(
+      "Card expired",
+    ),
+    "expiryDateEmpty": MessageLookupByLibrary.simpleMessage(
+      "Please enter expiry date",
+    ),
+    "expiryDateInvalidFormat": MessageLookupByLibrary.simpleMessage(
+      "Invalid format (MM/YY)",
+    ),
+    "expiryDateInvalidMonth": MessageLookupByLibrary.simpleMessage(
+      "Invalid month (01-12)",
+    ),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
+    "invalidCardNumber": MessageLookupByLibrary.simpleMessage(
+      "Invalid card number",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "logOut": MessageLookupByLibrary.simpleMessage("L O G O U T"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
@@ -93,5 +118,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "useSystemTheme": MessageLookupByLibrary.simpleMessage("Use System Theme"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
     "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),
+    "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
   };
 }

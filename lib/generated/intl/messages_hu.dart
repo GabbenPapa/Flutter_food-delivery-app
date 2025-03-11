@@ -37,8 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel": MessageLookupByLibrary.simpleMessage("Mégse"),
     "cardHolderName": m0,
     "cardHolderName2": MessageLookupByLibrary.simpleMessage("Kártyatulajdonos"),
+    "cardHolderNameEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kérjük, adja meg a kártyatulajdonos nevét",
+    ),
     "cardNum": m1,
     "cardNumber": MessageLookupByLibrary.simpleMessage("Kártyaszám"),
+    "cardNumberEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kérjük, adja meg a kártyaszámot",
+    ),
+    "cardNumberInvalid": MessageLookupByLibrary.simpleMessage(
+      "A kártyaszámnak pontosan 16 számból kell állnia",
+    ),
     "cartIsEmpty": MessageLookupByLibrary.simpleMessage("A kosár üres"),
     "cartTitle": MessageLookupByLibrary.simpleMessage("Kosár"),
     "checkout": MessageLookupByLibrary.simpleMessage("Pénztár"),
@@ -53,6 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nincs felhasználód?",
     ),
     "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
+    "cvvEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kérjük, adja meg a CVV-t",
+    ),
     "darkTheme": MessageLookupByLibrary.simpleMessage("Sötét téma"),
     "deliverNow": MessageLookupByLibrary.simpleMessage("Azonnali szállítás"),
     "deliveryFee": MessageLookupByLibrary.simpleMessage("Szállítási díj"),
@@ -67,9 +79,24 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expiryDate": m2,
     "expiryDate2": MessageLookupByLibrary.simpleMessage("Lejérés dátum"),
+    "expiryDateCardExpired": MessageLookupByLibrary.simpleMessage(
+      "Lejárt kártya",
+    ),
+    "expiryDateEmpty": MessageLookupByLibrary.simpleMessage(
+      "Kérjük, adja meg a lejárati dátumot",
+    ),
+    "expiryDateInvalidFormat": MessageLookupByLibrary.simpleMessage(
+      "Érvénytelen formátum (HH/ÉÉ)",
+    ),
+    "expiryDateInvalidMonth": MessageLookupByLibrary.simpleMessage(
+      "Érvénytelen hónap (01-12)",
+    ),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
+    "invalidCardNumber": MessageLookupByLibrary.simpleMessage(
+      "Érvénytelen kártyaszám",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Nyelv"),
     "logOut": MessageLookupByLibrary.simpleMessage("K I L É P É S"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
@@ -99,5 +126,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Igen"),
     "yourLocation": MessageLookupByLibrary.simpleMessage("Az Ön helyzete"),
+    "yourName": MessageLookupByLibrary.simpleMessage("Az Ön neve"),
   };
 }
