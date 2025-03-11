@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "deliveryTime": MessageLookupByLibrary.simpleMessage("Delivery Time"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "estimatedDeliveryTime": MessageLookupByLibrary.simpleMessage(
+      "Estimated Delivery Time: 30 minutes",
+    ),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
@@ -68,6 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "singUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "success": MessageLookupByLibrary.simpleMessage("Successful"),
+    "thankYouForYourOrder": MessageLookupByLibrary.simpleMessage(
+      "Thank you for your order",
+    ),
     "useSystemTheme": MessageLookupByLibrary.simpleMessage("Use System Theme"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
     "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),

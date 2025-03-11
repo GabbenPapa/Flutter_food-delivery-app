@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/generated/l10n.dart';
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -7,6 +8,7 @@ class Receipt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -15,7 +17,7 @@ class Receipt extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               Text(
-                'Thank you for your order',
+                localization.thankYouForYourOrder,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 18,
@@ -44,7 +46,7 @@ class Receipt extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                'Estimated Delivery Time: 30 minutes',
+                localization.estimatedDeliveryTime,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 18,

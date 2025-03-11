@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "deliveryTime": MessageLookupByLibrary.simpleMessage("Szállítási idő"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "error": MessageLookupByLibrary.simpleMessage("Hiba"),
+    "estimatedDeliveryTime": MessageLookupByLibrary.simpleMessage(
+      "Várható szállítási idő: 30 perc",
+    ),
     "foodDelivery": MessageLookupByLibrary.simpleMessage("Ételrendelés"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "home": MessageLookupByLibrary.simpleMessage("H O M E"),
@@ -70,6 +73,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signIn": MessageLookupByLibrary.simpleMessage("Bejelentkezés"),
     "singUp": MessageLookupByLibrary.simpleMessage("Regisztráció"),
     "success": MessageLookupByLibrary.simpleMessage("Sikeres"),
+    "thankYouForYourOrder": MessageLookupByLibrary.simpleMessage(
+      "Köszönjük a rendelését",
+    ),
     "useSystemTheme": MessageLookupByLibrary.simpleMessage(
       "Rendszer témájának használata",
     ),

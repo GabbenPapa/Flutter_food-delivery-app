@@ -45,7 +45,13 @@
 	"settingsDrawer":"S E T T I N G S",
 	"logOut":"L O G O U T",
 
-	"email":	"Email",
-	"password":	"Password",
-	"forgotPassword":	"Forgot Password"
+	"email": "Email",
+	"password": "Password",
+	"forgotPassword": "Forgot Password",
+
+	"thankYouForYourOrder": "Thank you for your order",
+	"estimatedDeliveryTime" : "Estimated Delivery Time: 30 minutes"
+
+	
+
 }

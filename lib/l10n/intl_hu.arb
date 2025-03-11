@@ -45,8 +45,10 @@
 	"settingsDrawer":"B E Á L L Í T Á S",
 	"logOut":"K I L É P É S",
 
-	"signOut": "Kijelentkezés",
 	"email": "Email",
 	"password": "Password",
-	"forgotPassword": "Forgot Password"
+	"forgotPassword": "Forgot Password",
+
+	"thankYouForYourOrder": "Köszönjük a rendelését",
+	"estimatedDeliveryTime" : "Várható szállítási idő: 30 perc"
 }

@@ -319,6 +319,26 @@ class AppLocalizations {
       args: [],
     );
   }
+
+  /// `Thank you for your order`
+  String get thankYouForYourOrder {
+    return Intl.message(
+      'Thank you for your order',
+      name: 'thankYouForYourOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated Delivery Time: 30 minutes`
+  String get estimatedDeliveryTime {
+    return Intl.message(
+      'Estimated Delivery Time: 30 minutes',
+      name: 'estimatedDeliveryTime',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
