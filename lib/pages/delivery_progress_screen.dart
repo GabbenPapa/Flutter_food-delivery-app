@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/generated/l10n.dart';
+import 'package:food_delivery/pages/home_screen.dart'; // Importáld a HomeScreen-t!
 import 'package:food_delivery/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -30,15 +31,23 @@ class _DeliveryProgressScreenState extends State<DeliveryProgressScreen> {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context);
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.onSurface,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(localizations.deliveryProgress),
-      ),
-      body: Column(
-        children: [Receipt()],
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.onSurface,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(localizations.deliveryProgress),
+        ),
+        body: Column(
+          children: [Receipt()],
+        ),
       ),
     );
   }
